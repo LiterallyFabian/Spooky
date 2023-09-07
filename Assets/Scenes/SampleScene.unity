@@ -1572,6 +1572,10 @@ PrefabInstance:
       propertyPath: Cover
       value: 
       objectReference: {fileID: 2049666478}
+    - target: {fileID: 7359754682385275440, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: _maxMotorSpeed
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7359754682385275447, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
       propertyPath: m_RootOrder
       value: 1
