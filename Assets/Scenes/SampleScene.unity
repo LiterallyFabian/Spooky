@@ -1564,6 +1564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7359754682385275403, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 7359754682385275440, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
       propertyPath: Cover
       value: 
