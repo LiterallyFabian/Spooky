@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// ReSharper disable Unity.InefficientPropertyAccess
+// ReSharper disable Unity.InefficientPropertyAccess - too small performance diff to fix
 
 namespace Spooky
 {
@@ -24,21 +24,22 @@ namespace Spooky
             _rigidbody = GetComponent<Rigidbody>();
             _transform = transform;
 
-            _lastPosition = transform.position;
+            _lastPosition = transform.position; 
         }
 
         // Update is called once per frame
         private void FixedUpdate()
         {
-            float movement = Input.GetAxis("Movement");
-            movement = Mathf.Clamp01(movement); // <-- Remove to be able to move backwards
+            float movementInput = Input.GetAxis("Movement");
+            movementInput = Mathf.Clamp01(movementInput); // <-- Remove this line to be able to move backwards
 
-            _transform.position += _transform.rotation * new Vector3(0, 0, movement) * (MovementSpeed * Time.fixedDeltaTime);
+            _transform.position += _transform.rotation * new Vector3(0, 0, movementInput) * (MovementSpeed * Time.fixedDeltaTime);
             _transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Look") * RotationSpeed * Time.fixedDeltaTime, 0);
 
             Vector3 movedDistance = transform.position - _lastPosition;
             _unitsSinceLastStep += Mathf.Abs(movedDistance.magnitude);
 
+            // Check if we should play a footstep
             if (_unitsSinceLastStep > _unitsBetweenStep)
             {
                 _unitsSinceLastStep = 0;
@@ -50,6 +51,7 @@ namespace Spooky
                 Destroy(a, clip.length);
             }
 
+            // Cache the current position over to the next frame
             _lastPosition = transform.position;
         }
     }
