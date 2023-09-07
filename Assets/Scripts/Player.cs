@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 // ReSharper disable Unity.InefficientPropertyAccess - too small performance diff to fix
 
@@ -18,12 +21,20 @@ namespace Spooky
         [SerializeField] private float _unitsBetweenStep = 0.9f;
         private Vector3 _lastPosition;
 
+        public Image Cover;
+
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _transform = transform;
 
-            _lastPosition = transform.position; 
+            _lastPosition = transform.position;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                Cover.enabled = !Cover.enabled;
         }
 
         private void FixedUpdate()
@@ -36,6 +47,7 @@ namespace Spooky
 
             Vector3 movedDistance = transform.position - _lastPosition;
             _unitsSinceLastStep += Mathf.Abs(movedDistance.magnitude);
+            
 
             // Check if we should play a footstep
             if (_unitsSinceLastStep > _unitsBetweenStep)
