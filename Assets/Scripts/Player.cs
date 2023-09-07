@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -47,7 +48,6 @@ namespace Spooky
 
             Vector3 movedDistance = transform.position - _lastPosition;
             _unitsSinceLastStep += Mathf.Abs(movedDistance.magnitude);
-            
 
             // Check if we should play a footstep
             if (_unitsSinceLastStep > _unitsBetweenStep)
@@ -61,8 +61,21 @@ namespace Spooky
                 Destroy(a, clip.length);
             }
 
+
+            // set gamepad motor speeds based on if we ran into a wall
+            if (Gamepad.current != null)
+            {
+            }
+            
+            
             // Cache the current position over to the next frame
             _lastPosition = transform.position;
+        }
+
+        private void OnApplicationQuit()
+        {
+            if (Gamepad.current != null)
+                Gamepad.current.SetMotorSpeeds(0, 0); // reset motor speeds
         }
     }
 }
