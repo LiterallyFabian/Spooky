@@ -83,7 +83,7 @@ namespace Spooky
             float rotationSign = Mathf.Sign(rotationInput);
 
             // Set gamepad motor speeds based on reduced movement percentage
-            if (Gamepad.current != null && movementPercentage < 0.98f)
+            if (Gamepad.current != null && movementPercentage < 0.98f && movementInput > 0.01f)
             {
                 // Split the motorSpeed based on rotation direction
                 float leftMotorSpeed = 1 - movementPercentage;
@@ -97,6 +97,9 @@ namespace Spooky
 
                 Gamepad.current.SetMotorSpeeds(leftMotorSpeed * _maxMotorSpeed, rightMotorSpeed * _maxMotorSpeed);
             }
+
+            if (movementInput < 0.01f)
+                Gamepad.current?.SetMotorSpeeds(0, 0);
 
             // Cache the current position over to the next frame
             _lastPosition = transform.position;
