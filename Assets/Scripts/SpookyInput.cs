@@ -114,6 +114,94 @@ namespace Spooky
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""SimonSays"",
+            ""id"": ""8acde824-9891-4851-a0ab-61b42e88cd68"",
+            ""actions"": [
+                {
+                    ""name"": ""KeyNorth"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a44288c-73bd-4aa8-9afa-87353f6f2b4a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KeyEast"",
+                    ""type"": ""Button"",
+                    ""id"": ""beacddfa-aa4e-4119-a32f-a98fee88fa9b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KeySouth"",
+                    ""type"": ""Button"",
+                    ""id"": ""b0f3835b-4aea-4ee9-b590-bd81dfa8c6bb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KeyWest"",
+                    ""type"": ""Button"",
+                    ""id"": ""801d216b-6ffe-4644-9484-eca78a94daad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2bf21ac8-5822-44df-a80d-71c05bcd978d"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KeyNorth"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53eed54b-bdf5-4344-b23a-0c9b41b91914"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KeyEast"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8811b9b4-0870-4fa6-b851-d3afea7f8cdf"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KeySouth"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f31ab93d-1ec2-4c22-9f2a-564da3916174"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KeyWest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -123,6 +211,12 @@ namespace Spooky
             m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
             m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+            // SimonSays
+            m_SimonSays = asset.FindActionMap("SimonSays", throwIfNotFound: true);
+            m_SimonSays_KeyNorth = m_SimonSays.FindAction("KeyNorth", throwIfNotFound: true);
+            m_SimonSays_KeyEast = m_SimonSays.FindAction("KeyEast", throwIfNotFound: true);
+            m_SimonSays_KeySouth = m_SimonSays.FindAction("KeySouth", throwIfNotFound: true);
+            m_SimonSays_KeyWest = m_SimonSays.FindAction("KeyWest", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -227,11 +321,75 @@ namespace Spooky
             }
         }
         public PlayerActions @Player => new PlayerActions(this);
+
+        // SimonSays
+        private readonly InputActionMap m_SimonSays;
+        private ISimonSaysActions m_SimonSaysActionsCallbackInterface;
+        private readonly InputAction m_SimonSays_KeyNorth;
+        private readonly InputAction m_SimonSays_KeyEast;
+        private readonly InputAction m_SimonSays_KeySouth;
+        private readonly InputAction m_SimonSays_KeyWest;
+        public struct SimonSaysActions
+        {
+            private @SpookyInput m_Wrapper;
+            public SimonSaysActions(@SpookyInput wrapper) { m_Wrapper = wrapper; }
+            public InputAction @KeyNorth => m_Wrapper.m_SimonSays_KeyNorth;
+            public InputAction @KeyEast => m_Wrapper.m_SimonSays_KeyEast;
+            public InputAction @KeySouth => m_Wrapper.m_SimonSays_KeySouth;
+            public InputAction @KeyWest => m_Wrapper.m_SimonSays_KeyWest;
+            public InputActionMap Get() { return m_Wrapper.m_SimonSays; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(SimonSaysActions set) { return set.Get(); }
+            public void SetCallbacks(ISimonSaysActions instance)
+            {
+                if (m_Wrapper.m_SimonSaysActionsCallbackInterface != null)
+                {
+                    @KeyNorth.started -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeyNorth;
+                    @KeyNorth.performed -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeyNorth;
+                    @KeyNorth.canceled -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeyNorth;
+                    @KeyEast.started -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeyEast;
+                    @KeyEast.performed -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeyEast;
+                    @KeyEast.canceled -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeyEast;
+                    @KeySouth.started -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeySouth;
+                    @KeySouth.performed -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeySouth;
+                    @KeySouth.canceled -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeySouth;
+                    @KeyWest.started -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeyWest;
+                    @KeyWest.performed -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeyWest;
+                    @KeyWest.canceled -= m_Wrapper.m_SimonSaysActionsCallbackInterface.OnKeyWest;
+                }
+                m_Wrapper.m_SimonSaysActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @KeyNorth.started += instance.OnKeyNorth;
+                    @KeyNorth.performed += instance.OnKeyNorth;
+                    @KeyNorth.canceled += instance.OnKeyNorth;
+                    @KeyEast.started += instance.OnKeyEast;
+                    @KeyEast.performed += instance.OnKeyEast;
+                    @KeyEast.canceled += instance.OnKeyEast;
+                    @KeySouth.started += instance.OnKeySouth;
+                    @KeySouth.performed += instance.OnKeySouth;
+                    @KeySouth.canceled += instance.OnKeySouth;
+                    @KeyWest.started += instance.OnKeyWest;
+                    @KeyWest.performed += instance.OnKeyWest;
+                    @KeyWest.canceled += instance.OnKeyWest;
+                }
+            }
+        }
+        public SimonSaysActions @SimonSays => new SimonSaysActions(this);
         public interface IPlayerActions
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
+        }
+        public interface ISimonSaysActions
+        {
+            void OnKeyNorth(InputAction.CallbackContext context);
+            void OnKeyEast(InputAction.CallbackContext context);
+            void OnKeySouth(InputAction.CallbackContext context);
+            void OnKeyWest(InputAction.CallbackContext context);
         }
     }
 }

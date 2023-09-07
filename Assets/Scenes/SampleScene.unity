@@ -1471,10 +1471,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 65521df0d3bd7d642a0ce7a0b25cd6c1, type: 3}
+  - {fileID: 8300000, guid: 938d0f5532ad75d4baa9ac17fba2204a, type: 3}
+  - {fileID: 8300000, guid: f8812f4745cae344ab23576e0fe46ca4, type: 3}
+  - {fileID: 8300000, guid: 2d2a385257e9c8a42a0f50c121c4e225, type: 3}
 --- !u!65 &2081491877
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1546,7 +1546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081491875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.569, y: 0.401, z: 3.4452069}
+  m_LocalPosition: {x: -31.39, y: 0.401, z: 4.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

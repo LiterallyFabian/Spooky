@@ -25,35 +25,35 @@ namespace Spooky
         public Image Cover;
 
         private InteractableController _interactableController;
-        private SpookyInput _input;
+        public SpookyInput Input { get; private set; }
 
-        void Start()
+        private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _transform = transform;
 
-            _input = new SpookyInput();
-            _input.Enable();
+            Input = new SpookyInput();
+            Input.Enable();
 
             _lastPosition = transform.position;
 
             _interactableController = GetComponentInChildren<InteractableController>();
 
-            _input.Player.Interact.performed += ctx => Interact();
+            Input.Player.Interact.performed += ctx => Interact();
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
                 Cover.enabled = !Cover.enabled;
         }
 
         private void FixedUpdate()
         {
-            float movementInput = _input.Player.Movement.ReadValue<float>();
+            float movementInput = Input.Player.Movement.ReadValue<float>();
             movementInput = Mathf.Clamp01(movementInput); // <-- Remove this line to be able to move backwards
 
-            Vector2 rotationInputVector = _input.Player.Look.ReadValue<Vector2>();
+            Vector2 rotationInputVector = Input.Player.Look.ReadValue<Vector2>();
             float rotationInput = rotationInputVector.x;
 
             _transform.position += _transform.rotation * new Vector3(0, 0, movementInput) * (MovementSpeed * Time.fixedDeltaTime);
@@ -101,6 +101,19 @@ namespace Spooky
             }
 
             i.Interact();
+        }
+
+        public static void ToggleInput(bool enabled)
+        {
+            Player p = FindObjectOfType<Player>();
+
+            if (p == null)
+                return;
+
+            if (enabled)
+                p.Input.Enable();
+            else
+                p.Input.Disable();
         }
     }
 }

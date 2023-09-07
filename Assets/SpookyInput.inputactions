@@ -90,6 +90,94 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "SimonSays",
+            "id": "8acde824-9891-4851-a0ab-61b42e88cd68",
+            "actions": [
+                {
+                    "name": "KeyNorth",
+                    "type": "Button",
+                    "id": "6a44288c-73bd-4aa8-9afa-87353f6f2b4a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "KeyEast",
+                    "type": "Button",
+                    "id": "beacddfa-aa4e-4119-a32f-a98fee88fa9b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "KeySouth",
+                    "type": "Button",
+                    "id": "b0f3835b-4aea-4ee9-b590-bd81dfa8c6bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "KeyWest",
+                    "type": "Button",
+                    "id": "801d216b-6ffe-4644-9484-eca78a94daad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2bf21ac8-5822-44df-a80d-71c05bcd978d",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyNorth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "53eed54b-bdf5-4344-b23a-0c9b41b91914",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyEast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8811b9b4-0870-4fa6-b851-d3afea7f8cdf",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeySouth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f31ab93d-1ec2-4c22-9f2a-564da3916174",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KeyWest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
