@@ -24,12 +24,16 @@ namespace Spooky
 
         public Image Cover;
 
+        private InteractableController _interactableController;
+
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _transform = transform;
 
             _lastPosition = transform.position;
+            
+            _interactableController = GetComponentInChildren<InteractableController>();
         }
 
         private void Update()
@@ -66,8 +70,8 @@ namespace Spooky
             if (Gamepad.current != null)
             {
             }
-            
-            
+
+
             // Cache the current position over to the next frame
             _lastPosition = transform.position;
         }
