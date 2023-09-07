@@ -53,7 +53,8 @@ namespace Spooky
             float movementInput = _input.Player.Movement.ReadValue<float>();
             movementInput = Mathf.Clamp01(movementInput); // <-- Remove this line to be able to move backwards
 
-            float rotationInput = _input.Player.Look.ReadValue<float>();
+            Vector2 rotationInputVector = _input.Player.Look.ReadValue<Vector2>();
+            float rotationInput = rotationInputVector.x;
 
             _transform.position += _transform.rotation * new Vector3(0, 0, movementInput) * (MovementSpeed * Time.fixedDeltaTime);
             _transform.rotation *= Quaternion.Euler(0, rotationInput * RotationSpeed * Time.fixedDeltaTime, 0);
@@ -92,7 +93,14 @@ namespace Spooky
 
         private void Interact()
         {
-            Debug.Log("Interact button pressed");
+            Interactable i = _interactableController.CurrentInteractable;
+            if (i == null)
+            {
+                Debug.LogWarning("Nothing to interact with here");
+                return;
+            }
+
+            i.Interact();
         }
     }
 }
