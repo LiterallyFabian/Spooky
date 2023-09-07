@@ -18,7 +18,6 @@ namespace Spooky
         [SerializeField] private float _unitsBetweenStep = 0.9f;
         private Vector3 _lastPosition;
 
-        // Start is called before the first frame update
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
@@ -27,7 +26,6 @@ namespace Spooky
             _lastPosition = transform.position; 
         }
 
-        // Update is called once per frame
         private void FixedUpdate()
         {
             float movementInput = Input.GetAxis("Movement");
