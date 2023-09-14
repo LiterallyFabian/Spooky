@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Spooky
@@ -40,6 +39,12 @@ namespace Spooky
 
         public SpookyInput Input { get; private set; }
 
+        [SerializeField] private AudioClip _instructions;
+        [SerializeField] private AudioClip _tryAgain;
+        [SerializeField] private AudioClip _victory;
+
+        private AudioSource _instructionsSource;
+
         private void Awake()
         {
             Input = new SpookyInput();
@@ -50,6 +55,8 @@ namespace Spooky
             Input.SimonSays.KeySouth.performed += ctx => SubmitKey(3);
 
             Input.Player.Interact.performed += ctx => ActionInteract();
+
+            _instructionsSource = gameObject.AddComponent<AudioSource>();
         }
 
         private void ActionInteract()
@@ -72,15 +79,18 @@ namespace Spooky
         {
             base.Interact();
 
-            TryStartGame();
+            StartCoroutine(TryStartGame());
         }
 
-        private void TryStartGame()
+        private IEnumerator TryStartGame()
         {
             if (_state != SimonSaysState.Idle)
-                return;
+                yield return null;
 
             Debug.Log("Starting game");
+
+            _instructionsSource.clip = _instructions;
+            _instructionsSource.Play();
 
             Player.ToggleInput(false);
 
@@ -91,6 +101,7 @@ namespace Spooky
 
             Input.Enable();
         }
+
 
         private static int[] GenerateSequence(int length = 5)
         {
@@ -107,6 +118,7 @@ namespace Spooky
 
         private IEnumerator RunSequence()
         {
+            _instructionsSource.Stop();
             _state = SimonSaysState.Running;
 
             yield return new WaitForSeconds(2f);
@@ -142,8 +154,13 @@ namespace Spooky
             if (index != _sequence[_currentPosition])
             {
                 Debug.Log("Wrong key!");
+
+                _instructionsSource.clip = _tryAgain;
+                _instructionsSource.Play();
+
                 _state = SimonSaysState.Idle;
                 Input.Disable();
+                Player.ToggleInput(true);
                 return;
             }
 
@@ -153,6 +170,11 @@ namespace Spooky
             {
                 Debug.Log("Sequence complete!");
                 _state = SimonSaysState.Completed;
+                _instructionsSource.clip = _victory;
+                _instructionsSource.Play();
+                
+                Player.ToggleInput(false);
+                Input.Disable();
                 return;
             }
             else if (_currentPosition == _currentLevel)

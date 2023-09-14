@@ -1452,7 +1452,7 @@ GameObject:
   - component: {fileID: 2081491877}
   - component: {fileID: 2081491876}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: SimonSays
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1472,9 +1472,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sounds:
   - {fileID: 8300000, guid: 65521df0d3bd7d642a0ce7a0b25cd6c1, type: 3}
-  - {fileID: 8300000, guid: 938d0f5532ad75d4baa9ac17fba2204a, type: 3}
-  - {fileID: 8300000, guid: f8812f4745cae344ab23576e0fe46ca4, type: 3}
-  - {fileID: 8300000, guid: 2d2a385257e9c8a42a0f50c121c4e225, type: 3}
+  - {fileID: 8300000, guid: 253e61a0fc68c71498bc1b614b0fbeff, type: 3}
+  - {fileID: 8300000, guid: 48dff99a777c9d144bf1c65d271811c5, type: 3}
+  - {fileID: 8300000, guid: 3569ca7f5b2cd1542b2f01839125606c, type: 3}
+  _instructions: {fileID: 8300000, guid: e6e95713489bd974ebb265b3dda828b6, type: 3}
+  _tryAgain: {fileID: 8300000, guid: f99d9cc32bc9ab14983a4a7f15d688ff, type: 3}
+  _victory: {fileID: 8300000, guid: d6ed2977992cef44f87e3e42f13a7595, type: 3}
 --- !u!65 &2081491877
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1546,7 +1549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081491875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.39, y: 0.401, z: 4.44}
+  m_LocalPosition: {x: -31.39, y: 0.401, z: 5.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
