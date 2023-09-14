@@ -1477,7 +1477,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3569ca7f5b2cd1542b2f01839125606c, type: 3}
   _instructions: {fileID: 8300000, guid: e6e95713489bd974ebb265b3dda828b6, type: 3}
   _tryAgain: {fileID: 8300000, guid: f99d9cc32bc9ab14983a4a7f15d688ff, type: 3}
-  _victory: {fileID: 8300000, guid: d6ed2977992cef44f87e3e42f13a7595, type: 3}
+  _victory: {fileID: 8300000, guid: ebb11393ca278654a9c08191277b3a8b, type: 3}
 --- !u!65 &2081491877
 BoxCollider:
   m_ObjectHideFlags: 0
