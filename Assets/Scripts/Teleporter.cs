@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace Spooky
 {
     [RequireComponent(typeof(Collider))]
     public class Teleporter : MonoBehaviour
     {
+        [Tooltip("The scene to load from this teleporter")]
         [SerializeField] private string _scene;
-       [SerializeField] private AudioClip _doorClose;
-        
+        [SerializeField] private AudioClip _doorClose;
+
         private void OnTriggerEnter(Collider other)
         {
-            StartCoroutine(FadeOut(1));
+            StartCoroutine(Teleport(1));
         }
 
-        public IEnumerator FadeOut(float fadeTime)
+        public IEnumerator Teleport(float fadeTime)
         {
             Player.ToggleInput(false);
-            
+
             AudioSource source = gameObject.AddComponent<AudioSource>();
             source.clip = _doorClose;
             source.Play();
