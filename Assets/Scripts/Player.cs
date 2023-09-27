@@ -102,7 +102,7 @@ namespace Spooky
                 Gamepad.current.SetMotorSpeeds(leftMotorSpeed * _maxMotorSpeed, rightMotorSpeed * _maxMotorSpeed);
             }
 
-            if (movementInput < 0.01f)
+            if (movementInput < 0.01f || movementPercentage > 0.95f)
                 Gamepad.current?.SetMotorSpeeds(0, 0);
 
             // Cache the current position over to the next frame
