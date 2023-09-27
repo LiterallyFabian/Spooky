@@ -24,6 +24,8 @@ namespace Spooky
     [RequireComponent(typeof(AudioSource))]
     public class SimonSays : Interactable
     {
+        public override bool Locked => _dropoffPoint != null && !_dropoffPoint.Enabled;
+        
         /// <summary>
         /// An optional <see cref="DropoffPoint"/>.
         /// If provided, it will have to be <see cref="DropoffPoint.Enabled"/> for this puzzle to be unlocked.

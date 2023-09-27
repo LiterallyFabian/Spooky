@@ -11,6 +11,8 @@ namespace Spooky
     [RequireComponent(typeof(Collider))]
     public abstract class Interactable : MonoBehaviour
     {
+        public virtual bool Locked => false;
+        
         public virtual void Highlight(bool highlight)
         {
             Debug.Log($"Highlighted object {gameObject.name}, type {GetType().Name}, highlight: {highlight}");

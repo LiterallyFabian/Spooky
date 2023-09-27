@@ -64,6 +64,9 @@ namespace Spooky
 
             foreach (Interactable interactable in _interactables)
             {
+                if (interactable.Locked)
+                    continue;
+                
                 float distance = Vector3.Distance(_playerPivot.position, interactable.transform.position);
 
                 if (!(distance < closestDistance)) continue;
