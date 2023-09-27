@@ -55,23 +55,87 @@ namespace Spooky
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MovementInputSideways"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4881b79-cee0-45d1-a303-51b1d52d9bff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""81ab0586-cfc7-4605-8e7d-485b7718beb2"",
+                    ""name"": ""1D Axis"",
+                    ""id"": ""24e97c89-8134-46a0-9139-5115e344a3c4"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9654e88b-b133-41c8-bb8f-c33c6faa33d2"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""f5c1428e-0e49-4896-b6aa-241fad49dc6b"",
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
                     ""id"": ""2d39244e-1404-455f-b509-3af31645389e"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79abfb69-a62c-41b3-a6c1-26dfa6224eea"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a4bb8e0e-330f-48bd-990c-03159fbcac9e"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a52fc4a6-5d1b-4172-aac6-78b3859acad4"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -110,6 +174,39 @@ namespace Spooky
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""149c30ab-f018-4ece-b80f-a962e47b675f"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementInputSideways"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""b4865dc8-a39f-408f-a1ad-d9cc074f860c"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementInputSideways"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c1654db4-f1d1-4b8d-8cdd-00ad3f4fe45d"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementInputSideways"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -211,6 +308,7 @@ namespace Spooky
             m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
             m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
             m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+            m_Player_MovementInputSideways = m_Player.FindAction("MovementInputSideways", throwIfNotFound: true);
             // SimonSays
             m_SimonSays = asset.FindActionMap("SimonSays", throwIfNotFound: true);
             m_SimonSays_KeyNorth = m_SimonSays.FindAction("KeyNorth", throwIfNotFound: true);
@@ -279,6 +377,7 @@ namespace Spooky
         private readonly InputAction m_Player_Movement;
         private readonly InputAction m_Player_Look;
         private readonly InputAction m_Player_Interact;
+        private readonly InputAction m_Player_MovementInputSideways;
         public struct PlayerActions
         {
             private @SpookyInput m_Wrapper;
@@ -286,6 +385,7 @@ namespace Spooky
             public InputAction @Movement => m_Wrapper.m_Player_Movement;
             public InputAction @Look => m_Wrapper.m_Player_Look;
             public InputAction @Interact => m_Wrapper.m_Player_Interact;
+            public InputAction @MovementInputSideways => m_Wrapper.m_Player_MovementInputSideways;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -304,6 +404,9 @@ namespace Spooky
                     @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                     @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                     @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
+                    @MovementInputSideways.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementInputSideways;
+                    @MovementInputSideways.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementInputSideways;
+                    @MovementInputSideways.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovementInputSideways;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -317,6 +420,9 @@ namespace Spooky
                     @Interact.started += instance.OnInteract;
                     @Interact.performed += instance.OnInteract;
                     @Interact.canceled += instance.OnInteract;
+                    @MovementInputSideways.started += instance.OnMovementInputSideways;
+                    @MovementInputSideways.performed += instance.OnMovementInputSideways;
+                    @MovementInputSideways.canceled += instance.OnMovementInputSideways;
                 }
             }
         }
@@ -383,6 +489,7 @@ namespace Spooky
             void OnMovement(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
             void OnInteract(InputAction.CallbackContext context);
+            void OnMovementInputSideways(InputAction.CallbackContext context);
         }
         public interface ISimonSaysActions
         {
