@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Spooky
 {
@@ -68,6 +70,8 @@ namespace Spooky
         private AudioSource _instructionsSource;
         private AudioSource _idleSource;
 
+        public event Action OnGameCompleted;
+
         private void Awake()
         {
             _idleSource = GetComponent<AudioSource>();
@@ -84,11 +88,11 @@ namespace Spooky
 
             if (_dropoffPoint)
             {
-                _dropoffPoint.ItemPlaced += () => _idleSource.Play();
+                _dropoffPoint.OnItemPlaced += () => StartCoroutine(PlayIdleSounds());
             }
             else
             {
-                _idleSource.Play();
+                StartCoroutine(PlayIdleSounds());
             }
         }
 
@@ -143,7 +147,7 @@ namespace Spooky
             _currentPosition = 0;
             _currentLevel = 1;
 
-            _idleSource.volume = 0.2f;
+            _idleSource.volume = 0.04f;
 
             Input.Enable();
         }
@@ -219,10 +223,12 @@ namespace Spooky
                 _state = SimonSaysState.Completed;
                 _instructionsSource.clip = _victory;
                 _instructionsSource.Play();
+                
+                OnGameCompleted?.Invoke();
 
-                _idleSource.volume = 0.5f;
+                _idleSource.Stop();
 
-                Player.ToggleInput(false);
+                Player.ToggleInput(true);
                 Input.Disable();
                 return;
             }
@@ -235,7 +241,7 @@ namespace Spooky
             }
         }
 
-        private IEnumerator PlayIdle()
+        private IEnumerator PlayIdleSounds()
         {
             _idleSource.clip = _idleStart;
             _idleSource.Play();

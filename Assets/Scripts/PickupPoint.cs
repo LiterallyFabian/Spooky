@@ -21,7 +21,7 @@ namespace Spooky
         /// <summary>
         /// Event called when the item here is picked up.
         /// </summary>
-        public event Action ItemPicked;
+        public event Action OnItemPicked;
 
         private AudioSource _source;
 
@@ -39,7 +39,7 @@ namespace Spooky
                 return;
 
             InteractedWith = true;
-            ItemPicked?.Invoke();
+            OnItemPicked?.Invoke();
 
             if (_pickupClip)
             {

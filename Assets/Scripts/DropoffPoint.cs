@@ -23,7 +23,7 @@ namespace Spooky
         /// <summary>
         /// Event called when the correct item is placed here.
         /// </summary>
-        public event Action ItemPlaced;
+        public event Action OnItemPlaced;
 
         private AudioSource _source;
 
@@ -37,7 +37,7 @@ namespace Spooky
                 return;
             }
 
-            _pickupPoint.ItemPicked += () => _source.volume = 1;
+            _pickupPoint.OnItemPicked += () => _source.volume = 0.5f;
         }
 
         public override void Interact()
@@ -53,12 +53,18 @@ namespace Spooky
                 return;
 
             Enabled = true;
-            ItemPlaced?.Invoke();
+            OnItemPlaced?.Invoke();
 
             if (_dropoffClip)
-                AudioSource.PlayClipAtPoint(_dropoffClip, Vector3.zero);
+            {
+                AudioSource source = gameObject.AddComponent<AudioSource>();
+                source.clip = _dropoffClip;
+                source.Play();
+            }
 
             Debug.Log($"Dropped off item at {name}");
+            
+            _source.volume = 0.1f;
         }
     }
 }

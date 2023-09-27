@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -31,6 +32,8 @@ namespace Spooky
 
         private void Start()
         {
+            StartCoroutine(FadeIn()); // reset audio
+            
             _rigidbody = GetComponent<Rigidbody>();
             _transform = transform;
 
@@ -59,7 +62,8 @@ namespace Spooky
             float rotationInput = rotationInputVector.x;
 
             // Target movement is the movement we *want* to make this frame
-            Vector3 targetMovement = _transform.rotation * new Vector3(0, 0, movementInput) * (MovementSpeed * Time.fixedDeltaTime);
+            Vector3 targetMovement = _transform.rotation * new Vector3(0, 0, movementInput) *
+                                     (MovementSpeed * Time.fixedDeltaTime);
             _transform.position += targetMovement;
             _transform.rotation *= Quaternion.Euler(0, rotationInput * RotationSpeed * Time.fixedDeltaTime, 0);
 
@@ -134,6 +138,18 @@ namespace Spooky
                 p.Input.Enable();
             else
                 p.Input.Disable();
+        }
+
+        public IEnumerator FadeIn()
+        {
+            float startVolume = AudioListener.volume;
+
+            while (AudioListener.volume < 1)
+            {
+                AudioListener.volume += Time.deltaTime;
+
+                yield return null;
+            }
         }
     }
 }
