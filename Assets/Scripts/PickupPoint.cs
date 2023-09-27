@@ -7,6 +7,8 @@ namespace Spooky
     [RequireComponent(typeof(AudioSource))]
     public class PickupPoint : Interactable
     {
+        public override bool Locked => InteractedWith;
+
         /// <summary>
         /// Whether or not the item at this point has been picked up.
         /// If true, the associated <see cref="DropoffPoint"/> will be able to be interacted with.
