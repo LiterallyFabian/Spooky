@@ -13,9 +13,6 @@ namespace Spooky
         private Collider _collider;
         private AudioSource _source;
 
-        private float _targetVolume = 1;
-        private const float FadeTime = 1f;
-
         [SerializeField] private AudioClip _doorOpen;
 
         private void Awake()
