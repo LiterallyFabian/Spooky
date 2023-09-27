@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,7 +28,7 @@ namespace Spooky
     public class SimonSays : Interactable
     {
         public override bool Locked => _dropoffPoint != null && !_dropoffPoint.Enabled;
-        
+
         /// <summary>
         /// An optional <see cref="DropoffPoint"/>.
         /// If provided, it will have to be <see cref="DropoffPoint.Enabled"/> for this puzzle to be unlocked.
@@ -156,13 +157,23 @@ namespace Spooky
         private static int[] GenerateSequence(int length = 5)
         {
             int[] seq = new int[length];
+            string text = "Sequence ";
 
             for (int i = 0; i < length; i++)
             {
-                seq[i] = Random.Range(0, 4);
-                Debug.Log($"Generated key {seq[i]}");
+                int num = Random.Range(0, 4);
+
+                while (seq.Count(e => e == num) >= 2) // generate a new number if it appears more than twice
+                    num = Random.Range(0, 4);
+
+                seq[i] = num;
+                text += seq[i];
+                
+                if (i < length - 1)
+                    text += "-"; // add a dash if we have numbers left
             }
 
+            Debug.Log(text); 
             return seq;
         }
 
@@ -223,7 +234,7 @@ namespace Spooky
                 _state = SimonSaysState.Completed;
                 _instructionsSource.clip = _victory;
                 _instructionsSource.Play();
-                
+
                 OnGameCompleted?.Invoke();
 
                 _idleSource.Stop();
