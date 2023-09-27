@@ -6,8 +6,10 @@ namespace Spooky
     [RequireComponent(typeof(AudioSource))]
     public class DropoffPoint : Interactable
     {
-        [Tooltip("The pickup point that the player has to interact with to enable this point.")]
-        [SerializeField] private PickupPoint _pickupPoint;
+        public override bool Locked => !_pickupPoint.InteractedWith;
+
+        [Tooltip("The pickup point that the player has to interact with to enable this point.")] [SerializeField]
+        private PickupPoint _pickupPoint;
 
         /// <summary>
         /// Whether or not an item has been dropped here.
@@ -63,7 +65,7 @@ namespace Spooky
             }
 
             Debug.Log($"Dropped off item at {name}");
-            
+
             _source.volume = 0.1f;
         }
     }
