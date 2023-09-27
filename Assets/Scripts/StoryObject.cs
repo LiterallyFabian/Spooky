@@ -7,9 +7,10 @@ namespace Spooky
 
     public class StoryObject : Interactable
     {
-        [SerializeField] private AudioClip sound, dialogue;
-        [SerializeField] private AudioSource playerAudioSource;
+        [SerializeField] private AudioClip sound, comment;
         private AudioSource audioSource;
+        [SerializeField] private Dialogue dialogue;
+        private bool hasPlayed = false;
 
         void Awake()
         {
@@ -26,9 +27,13 @@ namespace Spooky
 
         public override void Interact()
         {
-            audioSource.Pause();
-            playerAudioSource.clip = dialogue;
-            playerAudioSource.Play();
+            if (!hasPlayed)
+            {
+                audioSource.Stop();
+                dialogue.Say(comment);
+                hasPlayed = true;
+            }
+            
         }
 
 

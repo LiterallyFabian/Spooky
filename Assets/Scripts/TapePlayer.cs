@@ -2,44 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapePlayer : MonoBehaviour
+namespace Spooky
 {
-    [SerializeField] private AudioClip[] tapes;
-    private AudioSource audioSource;
-    private bool hasPlayed = false;
-    private int numberTape = 0;
-
-    // Start is called before the first frame update
-    void Start()
+    public class TapePlayer : MonoBehaviour
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
-    }
+        [SerializeField] private AudioClip[] tapes;
+        //private AudioSource audioSource;
+        private bool hasPlayed = false;
+        private int numberTape = 0;
+        [SerializeField] private Dialogue dialogue;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(!hasPlayed){
-            if(Input.GetKeyDown(KeyCode.Space))
+        // Start is called before the first frame update
+        void Start()
+        {
+            PlayTape(numberTape);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            //if (!hasPlayed)
+            //{
+            //    if (Input.GetKeyDown(KeyCode.Space))
+            //    {
+            //        if (!dialogue.IsPlaying())
+            //        {
+            //            PlayTape(numberTape);
+            //            numberTape++;
+            //        }
+            //    }
+            //}
+            if (!dialogue.IsPlaying())
             {
-                if(!audioSource.isPlaying){
-                    PlayTape(numberTape);
-                    numberTape++;
-                }                
+                Player.ToggleInput(true);
             }
+
         }
-        
-    }
 
-    void PlayTape(int numberTape)
-    {
-        //Gör så att spelaren inte kan gå
-        audioSource.clip = tapes[numberTape];
-        audioSource.Play();
-        if(numberTape == 1){
-            hasPlayed = true;
+        void PlayTape(int numberTape)
+        {
+            Player.ToggleInput(false);
+            dialogue.Say(tapes[numberTape]);
+            if (numberTape == 0)
+            {
+                hasPlayed = true;
+            }
+
         }
-        
+
+
     }
-
-
 }
+
