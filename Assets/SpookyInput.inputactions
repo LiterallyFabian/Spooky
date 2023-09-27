@@ -57,6 +57,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "1442000b-712c-4a89-9c58-9ef162976c6d",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8123789a-379e-470a-994d-4c5fdb406afd",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cd73747-a4f6-4612-9d93-e890fb381b2f",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "81e83833-699f-4e5a-a8e9-683b9160c3d3",
                     "path": "2DVector",

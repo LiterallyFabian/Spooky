@@ -16,11 +16,24 @@ namespace Spooky
 
         /// <summary>The game is waiting for the player to input their key(s).</summary>
         Waiting,
+
+        /// <summary>The game is finished and can no longer be used.</summary>
         Completed,
     }
 
+    [RequireComponent(typeof(AudioSource))]
     public class SimonSays : Interactable
     {
+        /// <summary>
+        /// An optional <see cref="DropoffPoint"/>.
+        /// If provided, it will have to be <see cref="DropoffPoint.Enabled"/> for this puzzle to be unlocked.
+        /// If null, this puzzle will always be unlocked.
+        /// </summary>
+        [Tooltip("If provided, the dropoff point will have to be Enabled for this puzzle to be unlocked." +
+                 "If null, this puzzle will always be unlocked.")]
+        [SerializeField]
+        private DropoffPoint _dropoffPoint;
+
         [SerializeField] private AudioClip[] _sounds = new AudioClip[4];
 
         private SimonSaysState _state = SimonSaysState.Idle;
@@ -43,10 +56,19 @@ namespace Spooky
         [SerializeField] private AudioClip _tryAgain;
         [SerializeField] private AudioClip _victory;
 
+        [Tooltip("A sound that will be played once in 3D space when this puzzle unlocks.")] [SerializeField]
+        private AudioClip _idleStart;
+
+        [Tooltip("A sound that will loop in 3D space after the startup sound when this puzzle unlocks.")]
+        [SerializeField]
+        private AudioClip _idleLoop;
+
         private AudioSource _instructionsSource;
+        private AudioSource _idleSource;
 
         private void Awake()
         {
+            _idleSource = GetComponent<AudioSource>();
             Input = new SpookyInput();
 
             Input.SimonSays.KeyWest.performed += ctx => SubmitKey(0);
@@ -57,8 +79,39 @@ namespace Spooky
             Input.Player.Interact.performed += ctx => ActionInteract();
 
             _instructionsSource = gameObject.AddComponent<AudioSource>();
+
+            if (_dropoffPoint)
+            {
+                _dropoffPoint.ItemPlaced += () => _idleSource.Play();
+            }
+            else
+            {
+                _idleSource.Play();
+            }
         }
 
+        /// <summary>
+        /// Event handler for when the player interacts outside of this puzzle, ie. starting it.
+        /// For the interaction event inside of the puzzle, see <see cref="ActionInteract"/>
+        /// </summary>
+        public override void Interact()
+        {
+            base.Interact();
+
+            // early return if we have a dropoff point and it is not enabled
+            if (_dropoffPoint != null && !_dropoffPoint.Enabled)
+            {
+                Debug.LogWarning($"This puzzle requires {_dropoffPoint.name} to be played.");
+                return;
+            }
+
+            StartCoroutine(TryStartGame());
+        }
+
+        /// <summary>
+        /// Event handler for when the player interacts inside this puzzle.
+        /// Interaction is only used to start the sequence from practice.
+        /// </summary>
         private void ActionInteract()
         {
             if (_state == SimonSaysState.Practice)
@@ -69,17 +122,6 @@ namespace Spooky
         {
             if (_sounds.Length != 4)
                 Debug.LogWarning($"An incorrect number of sounds ({_sounds.Length}) was provided.");
-        }
-
-        void Update()
-        {
-        }
-
-        public override void Interact()
-        {
-            base.Interact();
-
-            StartCoroutine(TryStartGame());
         }
 
         private IEnumerator TryStartGame()
@@ -98,6 +140,8 @@ namespace Spooky
             _sequence = GenerateSequence();
             _currentPosition = 0;
             _currentLevel = 1;
+
+            _idleSource.volume = 0.2f;
 
             Input.Enable();
         }
@@ -143,7 +187,8 @@ namespace Spooky
 
         private void SubmitKey(int index)
         {
-            if (_state is not (SimonSaysState.Practice or SimonSaysState.Waiting)) // Only allow practice or waiting-state
+            if (_state is not (SimonSaysState.Practice
+                or SimonSaysState.Waiting)) // Only allow practice or waiting-state
                 return;
 
             PlaySound(index);
@@ -172,7 +217,9 @@ namespace Spooky
                 _state = SimonSaysState.Completed;
                 _instructionsSource.clip = _victory;
                 _instructionsSource.Play();
-                
+
+                _idleSource.volume = 0.5f;
+
                 Player.ToggleInput(false);
                 Input.Disable();
                 return;
@@ -184,6 +231,23 @@ namespace Spooky
 
                 StartCoroutine(RunSequence());
             }
+        }
+
+        private IEnumerator PlayIdle()
+        {
+            _idleSource.clip = _idleStart;
+            _idleSource.Play();
+
+            yield return new WaitForSeconds(_idleStart.length);
+
+            // early return if game is not idle
+            if (_state != SimonSaysState.Idle)
+                yield return null;
+
+            _idleSource.Stop();
+            _idleSource.clip = _idleLoop;
+            _idleSource.loop = true;
+            _idleSource.Play();
         }
     }
 }

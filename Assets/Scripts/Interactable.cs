@@ -14,6 +14,17 @@ namespace Spooky
         public virtual void Highlight(bool highlight)
         {
             Debug.Log($"Highlighted object {gameObject.name}, type {GetType().Name}, highlight: {highlight}");
+
+            if (highlight)
+            {
+                AudioSource audio = gameObject.AddComponent<AudioSource>();
+                AudioClip clip = Resources.Load<AudioClip>("InteractableSound");
+
+                audio.clip = clip;
+                audio.Play();
+
+                Destroy(audio, clip.length);
+            }
         }
 
         public virtual void Interact()
