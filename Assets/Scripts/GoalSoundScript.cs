@@ -6,7 +6,10 @@ public class GoalSoundScript : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        GetComponent<AudioSource>().Play();
+        if (other.CompareTag("Player"))
+        {
+            GetComponent<AudioSource>().Play();
+        }
     }
 
 }
