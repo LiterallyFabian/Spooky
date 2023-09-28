@@ -13,12 +13,12 @@ namespace Spooky
     {
         public virtual void Highlight(bool highlight)
         {
-            Debug.Log($"Highlighted object {gameObject.name}, type {GetType().Name}, highlight: {highlight}");
+            //Debug.Log($"Highlighted object {gameObject.name}, type {GetType().Name}, highlight: {highlight}");
         }
 
         public virtual void Interact()
         {
-            Debug.Log($"Interacted with {gameObject.name}, type {GetType().Name}");
+            //Debug.Log($"Interacted with {gameObject.name}, type {GetType().Name}");
         }
     }
 }
