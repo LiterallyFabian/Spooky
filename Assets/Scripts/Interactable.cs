@@ -11,9 +11,25 @@ namespace Spooky
     [RequireComponent(typeof(Collider))]
     public abstract class Interactable : MonoBehaviour
     {
+        /// <summary>
+        /// Whether or not this interactable is locked. Locked interactables can not be interacted with.
+        /// </summary>
+        public virtual bool Locked => false;
+
         public virtual void Highlight(bool highlight)
         {
-            Debug.Log($"Highlighted object {gameObject.name}, type {GetType().Name}, highlight: {highlight}");
+            if (!highlight)
+                return;
+            
+            Debug.Log($"Highlighted object {gameObject.name}");
+
+            AudioSource audio = gameObject.AddComponent<AudioSource>();
+            AudioClip clip = Resources.Load<AudioClip>("InteractableSound");
+
+            audio.clip = clip;
+            audio.Play();
+
+            Destroy(audio, clip.length);
         }
 
         public virtual void Interact()
