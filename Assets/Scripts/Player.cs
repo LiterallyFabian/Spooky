@@ -49,8 +49,8 @@ namespace Spooky
 
         private void Update()
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
-                Cover.enabled = !Cover.enabled;
+            //if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
+            //    Cover.enabled = !Cover.enabled;
         }
 
         private void FixedUpdate()

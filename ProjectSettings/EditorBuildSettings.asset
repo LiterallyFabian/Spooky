@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/StartScene.unity
+    guid: 9c15221bebc58d8449a5e8c5ff59032d
+  - enabled: 1
+    path: Assets/Scenes/NoroFab.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/EllaCassy.unity
+    guid: 78526d4d764fbbe4c9ea7f9b546ea994
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0fea3b3c8fa308e4485af5ea296308f5, type: 2}
