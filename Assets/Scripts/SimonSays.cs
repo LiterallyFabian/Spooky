@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -75,6 +76,8 @@ namespace Spooky
         [SerializeField] private int[] _riggedSequence;
         [SerializeField] private bool _useRiggedSequence;
 
+        [SerializeField] private bool _alwaysPlayIdle = false;
+
         private void Awake()
         {
             _idleSource = GetComponent<AudioSource>();
@@ -89,13 +92,13 @@ namespace Spooky
 
             _instructionsSource = gameObject.AddComponent<AudioSource>();
 
-            if (_dropoffPoint)
+            if (!_dropoffPoint || _alwaysPlayIdle)
             {
-                _dropoffPoint.OnItemPlaced += () => StartCoroutine(PlayIdleSounds());
+                StartCoroutine(PlayIdleSounds());
             }
             else
             {
-                StartCoroutine(PlayIdleSounds());
+                _dropoffPoint.OnItemPlaced += () => StartCoroutine(PlayIdleSounds());
             }
         }
 
@@ -256,6 +259,9 @@ namespace Spooky
 
         private IEnumerator PlayIdleSounds()
         {
+            if (_idleSource.isPlaying)
+                yield return null;
+            
             _idleSource.clip = _idleStart;
             _idleSource.Play();
 
