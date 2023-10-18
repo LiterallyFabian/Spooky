@@ -6,7 +6,7 @@ namespace Spooky
     [RequireComponent(typeof(AudioSource))]
     public class DropoffPoint : Interactable
     {
-        public override bool Locked => !_pickupPoint.InteractedWith;
+        public override bool Locked => !(_pickupPoint.InteractedWith || _invalidDropoffClip != null);
 
         [Tooltip("The pickup point that the player has to interact with to enable this point.")] [SerializeField]
         private PickupPoint _pickupPoint;
@@ -22,16 +22,29 @@ namespace Spooky
         [SerializeField]
         private AudioClip _dropoffClip;
 
+        [Tooltip("An (optional) audioclip that will play if the player tries to interact here without having the required item. If not provided, the interactable-sound will not play.")] [SerializeField]
+        private AudioClip _invalidDropoffClip;
+
         /// <summary>
         /// Event called when the correct item is placed here.
         /// </summary>
         public event Action OnItemPlaced;
 
         private AudioSource _source;
+        private AudioSource _invalidDropoffSource;
+
+
+        [Tooltip("The volume when this point can be interacted with")]
+        [SerializeField] private float _activeVolume = 0.5f;
+        [Tooltip("The volume before this point can be interacted with")]
+        [SerializeField] private float _idleVolume = 0.2f;
+        [Tooltip("The volume when this point has been interacted with and is no longer relevant")]
+        [SerializeField] private float _finishedVolume = 0.1f;
 
         private void Awake()
         {
             _source = GetComponent<AudioSource>();
+            _invalidDropoffSource = gameObject.AddComponent<AudioSource>();
 
             if (!_pickupPoint)
             {
@@ -39,7 +52,8 @@ namespace Spooky
                 return;
             }
 
-            _pickupPoint.OnItemPicked += () => _source.volume = 0.5f;
+            _source.volume = _idleVolume;
+            _pickupPoint.OnItemPicked += () => _source.volume = _activeVolume;
         }
 
         public override void Interact()
@@ -49,6 +63,12 @@ namespace Spooky
             // early return if we're already done here
             if (Enabled)
                 return;
+
+            if (_invalidDropoffClip != null && !_invalidDropoffSource.isPlaying && !_pickupPoint.InteractedWith)
+            {
+                _invalidDropoffSource.clip = _invalidDropoffClip;
+                _invalidDropoffSource.Play();
+            }
 
             // early return if we have an invalid or non-interacted pickup point
             if (_pickupPoint == null || !_pickupPoint.InteractedWith)
@@ -66,7 +86,7 @@ namespace Spooky
 
             Debug.Log($"Dropped off item at {name}");
 
-            _source.volume = 0.1f;
+            _source.volume = _finishedVolume;
         }
     }
 }
