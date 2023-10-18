@@ -21,7 +21,7 @@ public class StartInstructions : MonoBehaviour
     {
         if(!dialogue.IsPlaying() && allDone)
         {
-            SceneManager.LoadScene("EllaCassy");
+            SceneManager.LoadScene("Room1");
         }
 
         if (!dialogue.IsPlaying() && (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("joystick button 2") || Input.GetKeyDown("joystick button 3")))
