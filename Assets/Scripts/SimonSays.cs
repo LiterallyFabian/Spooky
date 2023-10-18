@@ -268,7 +268,10 @@ namespace Spooky
             {
                 _currentLevel++;
                 _currentPosition = 0;
-
+            
+                if (GameConfig.Config.UseRandomSimonSequence)
+                    _sequence = GenerateSequence();
+                
                 StartCoroutine(RunSequence());
             }
         }
