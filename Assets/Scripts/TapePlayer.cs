@@ -9,7 +9,7 @@ namespace Spooky
         [SerializeField] private AudioClip[] tapes;
         //private AudioSource audioSource;
         private bool hasPlayed = false;
-        private int numberTape = 0;
+        private int numberTape = 2;
         [SerializeField] private Dialogue dialogue;
 
         // Start is called before the first frame update
