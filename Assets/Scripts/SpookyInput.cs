@@ -103,7 +103,7 @@ namespace Spooky
                 {
                     ""name"": """",
                     ""id"": ""2d39244e-1404-455f-b509-3af31645389e"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
