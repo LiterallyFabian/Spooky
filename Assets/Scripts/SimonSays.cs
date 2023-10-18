@@ -64,14 +64,16 @@ namespace Spooky
         [Tooltip("A sound that will be played once in 3D space when this puzzle unlocks.")] [SerializeField]
         private AudioClip _idleStart;
 
-        [Tooltip("A sound that will loop in 3D space after the startup sound when this puzzle unlocks.")]
-        [SerializeField]
+        [Tooltip("A sound that will loop in 3D space after the startup sound when this puzzle unlocks.")] [SerializeField]
         private AudioClip _idleLoop;
 
         private AudioSource _instructionsSource;
         private AudioSource _idleSource;
 
         public event Action OnGameCompleted;
+
+        [SerializeField] private int[] _riggedSequence;
+        [SerializeField] private bool _useRiggedSequence;
 
         private void Awake()
         {
@@ -144,7 +146,7 @@ namespace Spooky
             Player.ToggleInput(false);
 
             _state = SimonSaysState.Practice;
-            _sequence = GenerateSequence();
+            _sequence = _useRiggedSequence ? _riggedSequence : GenerateSequence();
             _currentPosition = 0;
             _currentLevel = 1;
 
@@ -168,12 +170,12 @@ namespace Spooky
 
                 seq[i] = num;
                 text += seq[i];
-                
+
                 if (i < length - 1)
                     text += "-"; // add a dash if we have numbers left
             }
 
-            Debug.Log(text); 
+            Debug.Log(text);
             return seq;
         }
 
