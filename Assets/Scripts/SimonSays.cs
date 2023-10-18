@@ -28,7 +28,9 @@ namespace Spooky
     [RequireComponent(typeof(AudioSource))]
     public class SimonSays : Interactable
     {
-        public override bool Locked => _dropoffPoint != null && !_dropoffPoint.Enabled;
+        public override bool Locked => !CanBePlayed && _invalidDropoffClip == null;
+
+        public bool CanBePlayed => !(_dropoffPoint != null && !_dropoffPoint.Enabled);
 
         /// <summary>
         /// An optional <see cref="DropoffPoint"/>.
@@ -70,13 +72,20 @@ namespace Spooky
 
         private AudioSource _instructionsSource;
         private AudioSource _idleSource;
+        private AudioSource _invalidDropoffSource;
 
         public event Action OnGameCompleted;
 
         [SerializeField] private int[] _riggedSequence;
-        [SerializeField] private bool _useRiggedSequence;
 
-        [SerializeField] private bool _alwaysPlayIdle = false;
+        [Tooltip("If not provided we will use a randomized sequence.")] [SerializeField]
+        private bool _useRiggedSequence;
+
+        [Tooltip("Should this play the idle sound from start? If false, the idle loop will start once all pre-conditions are met.")] [SerializeField]
+        private bool _alwaysPlayIdle = false;
+
+        [Tooltip("An (optional) audioclip that will play if the player tries to interact here without having the required pre-conditions. If not provided, the interactable-sound will not play.")] [SerializeField]
+        private AudioClip _invalidDropoffClip;
 
         private void Awake()
         {
@@ -91,6 +100,7 @@ namespace Spooky
             Input.Player.Interact.performed += ctx => ActionInteract();
 
             _instructionsSource = gameObject.AddComponent<AudioSource>();
+            _invalidDropoffSource = gameObject.AddComponent<AudioSource>();
 
             if (!_dropoffPoint || _alwaysPlayIdle)
             {
@@ -110,8 +120,14 @@ namespace Spooky
         {
             base.Interact();
 
+            if (!CanBePlayed && _invalidDropoffClip != null && !_invalidDropoffSource.isPlaying)
+            {
+                _invalidDropoffSource.clip = _invalidDropoffClip;
+                _invalidDropoffSource.Play();
+            }
+
             // early return if we have a dropoff point and it is not enabled
-            if (_dropoffPoint != null && !_dropoffPoint.Enabled)
+            if (!CanBePlayed)
             {
                 Debug.LogWarning($"This puzzle requires {_dropoffPoint.name} to be played.");
                 return;
@@ -261,7 +277,7 @@ namespace Spooky
         {
             if (_idleSource.isPlaying)
                 yield return null;
-            
+
             _idleSource.clip = _idleStart;
             _idleSource.Play();
 
