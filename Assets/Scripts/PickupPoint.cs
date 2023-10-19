@@ -20,6 +20,9 @@ namespace Spooky
         [SerializeField]
         private AudioClip _pickupClip;
 
+        [SerializeField] private bool pickUpIsVoice;
+        [SerializeField] private Dialogue dialogue;
+
         /// <summary>
         /// Event called when the item here is picked up.
         /// </summary>
@@ -45,9 +48,14 @@ namespace Spooky
 
             if (_pickupClip)
             {
-                AudioSource source = gameObject.AddComponent<AudioSource>();
-                source.clip = _pickupClip;
-                source.Play();
+                if(pickUpIsVoice)
+                {
+                    dialogue.Say(_pickupClip);
+                }else{
+                    AudioSource source = gameObject.AddComponent<AudioSource>();
+                    source.clip = _pickupClip;
+                    source.Play();
+                } 
             }
 
             _source.Stop();

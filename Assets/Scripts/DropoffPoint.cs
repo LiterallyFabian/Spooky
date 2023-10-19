@@ -41,6 +41,10 @@ namespace Spooky
         [Tooltip("The volume when this point has been interacted with and is no longer relevant")]
         [SerializeField] private float _finishedVolume = 0.1f;
 
+        [SerializeField] private bool dropOffIsVoice;
+        [SerializeField] private bool selfDestruct = false;
+        [SerializeField] private Dialogue dialogue;
+
         private void Awake()
         {
             _source = GetComponent<AudioSource>();
@@ -66,8 +70,7 @@ namespace Spooky
 
             if (_invalidDropoffClip != null && !_invalidDropoffSource.isPlaying && !_pickupPoint.InteractedWith)
             {
-                _invalidDropoffSource.clip = _invalidDropoffClip;
-                _invalidDropoffSource.Play();
+                dialogue.Say(_invalidDropoffClip);
             }
 
             // early return if we have an invalid or non-interacted pickup point
@@ -79,14 +82,23 @@ namespace Spooky
 
             if (_dropoffClip)
             {
-                AudioSource source = gameObject.AddComponent<AudioSource>();
-                source.clip = _dropoffClip;
-                source.Play();
+                if(dropOffIsVoice)
+                {
+                    dialogue.Say(_dropoffClip);
+                }else{
+                    AudioSource source = gameObject.AddComponent<AudioSource>();
+                    source.clip = _dropoffClip;
+                    source.Play();
+                }
             }
 
             Debug.Log($"Dropped off item at {name}");
 
             _source.volume = _finishedVolume;
+
+            if(selfDestruct){
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x - 10, gameObject.transform.position.y, gameObject.transform.position.z);
+            } 
         }
     }
 }

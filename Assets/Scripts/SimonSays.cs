@@ -87,6 +87,10 @@ namespace Spooky
         [Tooltip("An (optional) audioclip that will play if the player tries to interact here without having the required pre-conditions. If not provided, the interactable-sound will not play.")] [SerializeField]
         private AudioClip _invalidDropoffClip;
 
+        //Här har Ella och Cassandra förstört grejer
+        [SerializeField] private bool tryAgainIsVoice = false;
+        [SerializeField] private Dialogue dialogue;
+
         private void Awake()
         {
             _idleSource = GetComponent<AudioSource>();
@@ -122,8 +126,9 @@ namespace Spooky
 
             if (!CanBePlayed && _invalidDropoffClip != null && !_invalidDropoffSource.isPlaying)
             {
-                _invalidDropoffSource.clip = _invalidDropoffClip;
-                _invalidDropoffSource.Play();
+                //_invalidDropoffSource.clip = _invalidDropoffClip;
+                //_invalidDropoffSource.Play();
+                dialogue.Say(_invalidDropoffClip);
             }
 
             // early return if we have a dropoff point and it is not enabled
@@ -159,8 +164,9 @@ namespace Spooky
 
             Debug.Log("Starting game");
 
-            _instructionsSource.clip = _instructions;
-            _instructionsSource.Play();
+            //_instructionsSource.clip = _instructions;
+            //_instructionsSource.Play();
+            dialogue.Say(_instructions);
 
             Player.ToggleInput(false);
 
@@ -238,9 +244,14 @@ namespace Spooky
             {
                 Debug.Log("Wrong key!");
 
-                _instructionsSource.clip = _tryAgain;
-                _instructionsSource.Play();
-
+                //Här också :)
+                if(tryAgainIsVoice){
+                    dialogue.Say(_tryAgain);
+                }else{
+                    _instructionsSource.clip = _tryAgain;
+                    _instructionsSource.Play();
+                }
+                
                 _state = SimonSaysState.Idle;
                 Input.Disable();
                 Player.ToggleInput(true);

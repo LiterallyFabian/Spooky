@@ -24,7 +24,7 @@ namespace Spooky
             Debug.Log($"Highlighted object {gameObject.name}");
 
             AudioSource audio = gameObject.AddComponent<AudioSource>();
-            AudioClip clip = Resources.Load<AudioClip>("InteractableSound");
+            AudioClip clip = Resources.Load<AudioClip>("InteractionSound");
 
             audio.clip = clip;
             audio.Play();
