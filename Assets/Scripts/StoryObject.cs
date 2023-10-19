@@ -20,10 +20,6 @@ namespace Spooky
             audioSource.Play();
         }
 
-        void Update()
-        {
-            
-        }
 
         public override void Interact()
         {

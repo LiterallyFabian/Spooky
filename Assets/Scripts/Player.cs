@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 // ReSharper disable Unity.InefficientPropertyAccess - too small performance diff to fix
 
@@ -33,6 +34,9 @@ namespace Spooky
         public SpookyInput Input { get; private set; }
 
         [SerializeField] private float _maxMotorSpeed = 0.5f;
+
+        [SerializeField] private AudioClip wallOuchie;
+        private bool hasBumpedIntoWall = false;
 
         AudioSource[] _audioSources;
         [SerializeField] AudioMixerGroup OccludedMixerGroup, SemiOccludedMixerGroup, NonOccludedMixerGroup;
@@ -119,6 +123,11 @@ namespace Spooky
                     leftMotorSpeed *= 1.5f;
 
                 Gamepad.current.SetMotorSpeeds(leftMotorSpeed * _maxMotorSpeed, rightMotorSpeed * _maxMotorSpeed);
+
+                if(!hasBumpedIntoWall && SceneManager.GetActiveScene().name == "Room1"){
+                    GetComponentInChildren<Dialogue>().Say(wallOuchie);
+                    hasBumpedIntoWall = true;
+                }   
             }
 
             if (movementInput < 0.01f || movementPercentage > 0.95f)
