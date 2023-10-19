@@ -180,7 +180,7 @@ namespace Spooky
         public static void ToggleInput(bool enabled)
         {
             Player p = FindObjectOfType<Player>();
-
+            Debug.Log(enabled);
             if (p == null)
                 return;
 
