@@ -232,7 +232,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6fd66a7baa88c7049b82657d8eb15479, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -278,7 +278,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -330,7 +330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb186760feb44044a051274814e9ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentToEnable: {fileID: 0}
   controller: {fileID: 0}
   isEnabled: 0
 --- !u!1 &163119879
@@ -929,7 +928,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6fd66a7baa88c7049b82657d8eb15479, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d5d50cc1d2a97d24ebcaabf804983842, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -975,7 +974,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1090,7 +1089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb186760feb44044a051274814e9ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentToEnable: {fileID: 0}
   controller: {fileID: 0}
   isEnabled: 0
 --- !u!1 &760881653
@@ -1440,7 +1438,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6fd66a7baa88c7049b82657d8eb15479, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1486,7 +1484,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1538,7 +1536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb186760feb44044a051274814e9ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentToEnable: {fileID: 0}
   controller: {fileID: 0}
   isEnabled: 0
 --- !u!1 &1128432693
@@ -1926,15 +1923,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequence:
   - component: {fileID: 737706270}
+    objectsToEnable: []
+    loudVolume: 0.6
+    lowVolume: 0.01
+    clip: {fileID: 8300000, guid: d5d50cc1d2a97d24ebcaabf804983842, type: 3}
     oneShot: {fileID: 0}
+    oneShotVolume: 0
   - component: {fileID: 140915159}
+    objectsToEnable: []
+    loudVolume: 1
+    lowVolume: 0.05
+    clip: {fileID: 0}
     oneShot: {fileID: 0}
+    oneShotVolume: 0
   - component: {fileID: 737706270}
-    oneShot: {fileID: 8300000, guid: 9f38ff8d927875147b128d1408d167c8, type: 3}
+    objectsToEnable: []
+    loudVolume: 0.6
+    lowVolume: 0.01
+    clip: {fileID: 8300000, guid: d5d50cc1d2a97d24ebcaabf804983842, type: 3}
+    oneShot: {fileID: 8300000, guid: 9cdf0282bff87eb42ba66e25ae94c59c, type: 3}
+    oneShotVolume: 0.1
   - component: {fileID: 1037358771}
+    objectsToEnable: []
+    loudVolume: 1
+    lowVolume: 0.05
+    clip: {fileID: 0}
     oneShot: {fileID: 0}
+    oneShotVolume: 0
   - component: {fileID: 2081491882}
+    objectsToEnable:
+    - {fileID: 2081491875}
+    loudVolume: 1
+    lowVolume: 0.05
+    clip: {fileID: 0}
     oneShot: {fileID: 0}
+    oneShotVolume: 0
 --- !u!4 &1740365500
 Transform:
   m_ObjectHideFlags: 0
@@ -2052,7 +2075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2081491876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2074,8 +2097,8 @@ MonoBehaviour:
   _instructions: {fileID: 8300000, guid: e6e95713489bd974ebb265b3dda828b6, type: 3}
   _tryAgain: {fileID: 8300000, guid: f99d9cc32bc9ab14983a4a7f15d688ff, type: 3}
   _victory: {fileID: 8300000, guid: ebb11393ca278654a9c08191277b3a8b, type: 3}
-  _idleStart: {fileID: 0}
-  _idleLoop: {fileID: 0}
+  _idleStart: {fileID: 8300000, guid: f8812f4745cae344ab23576e0fe46ca4, type: 3}
+  _idleLoop: {fileID: 8300000, guid: 2d2a385257e9c8a42a0f50c121c4e225, type: 3}
 --- !u!65 &2081491877
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2164,7 +2187,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6fd66a7baa88c7049b82657d8eb15479, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2210,7 +2233,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2262,7 +2285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb186760feb44044a051274814e9ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentToEnable: {fileID: 0}
   controller: {fileID: 0}
   isEnabled: 0
 --- !u!1001 &7359754681711471316
@@ -2272,6 +2294,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 912081199}
     m_Modifications:
+    - target: {fileID: 219176772, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 236781136, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 664174888, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 913736551, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 913736552, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028114646, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231386476, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320388865, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320388866, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662423006, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662423007, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690154705, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891625001, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7359754682385275402, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2326,7 +2400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7359754682385275447, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.11
+      value: 1.54
       objectReference: {fileID: 0}
     - target: {fileID: 7359754682385275447, guid: 61f9f37fb4676a94983cafed09e168c5, type: 3}
       propertyPath: m_LocalPosition.z

@@ -7,10 +7,9 @@ namespace Spooky
     [RequireComponent(typeof(AudioSource))]
     public class SequenceInteractionComponent : Interactable
     {
-
-        public Component componentToEnable;
-        // Start is called before the first frame update
+        [HideInInspector]
         public SequenceInteraction controller;
+        [HideInInspector]
         public bool isEnabled = false;
 
         public override void Interact()
