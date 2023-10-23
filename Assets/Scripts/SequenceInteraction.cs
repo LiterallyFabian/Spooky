@@ -38,6 +38,7 @@ namespace Spooky
                 if (sequence[i].clip)
                 {
                     sequence[i].component.GetComponent<AudioSource>().clip = sequence[i].clip;
+                    sequence[i].component.GetComponent<AudioSource>().Play();
                 }
             }
             if (sequence.Length > 0)

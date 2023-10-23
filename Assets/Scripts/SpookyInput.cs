@@ -101,6 +101,39 @@ namespace Spooky
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""keyboard"",
+                    ""id"": ""ed16d4e2-d92d-46fe-98c5-fb1a60e081cb"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1cc2d0dc-a08a-45b4-8246-6228226901f2"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""988d0e85-b681-45d1-84db-d4cb075757ce"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""2d39244e-1404-455f-b509-3af31645389e"",
                     ""path"": ""<Gamepad>/buttonNorth"",
@@ -145,6 +178,17 @@ namespace Spooky
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""ef0b0dd8-1e3a-4857-9fa2-7ed9dd0526cf"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""2D Vector"",
                     ""id"": ""81e83833-699f-4e5a-a8e9-683b9160c3d3"",
                     ""path"": ""2DVector"",
@@ -178,6 +222,39 @@ namespace Spooky
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""mouse"",
+                    ""id"": ""c0bbaf89-d568-4920-9f20-037a60f9380a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""4cd754cd-c493-4613-aae3-2093da558044"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""bfa061a3-fe1e-4a03-a028-e27b3c086030"",
+                    ""path"": ""<Mouse>/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": ""1D Axis"",
                     ""id"": ""149c30ab-f018-4ece-b80f-a962e47b675f"",
                     ""path"": ""1DAxis"",
@@ -203,6 +280,39 @@ namespace Spooky
                     ""name"": ""positive"",
                     ""id"": ""c1654db4-f1d1-4b8d-8cdd-00ad3f4fe45d"",
                     ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementInputSideways"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""keyboard"",
+                    ""id"": ""0181682b-335e-4b5d-a919-75147cc2e76e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementInputSideways"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""c9872ec9-2f19-4d31-a578-3afafe790d9b"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementInputSideways"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""f3b89999-ea55-49de-8ae1-b2070271dc30"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

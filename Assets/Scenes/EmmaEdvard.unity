@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -236,7 +236,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -928,7 +928,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d5d50cc1d2a97d24ebcaabf804983842, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4e4f557a0556b3246b345f07a2983493, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1358,7 +1358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037358765}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.13, y: 0.75, z: 3.47}
+  m_LocalPosition: {x: -7.03, y: 0.75, z: 3.47}
   m_LocalScale: {x: 5.5603876, y: 1.5627621, z: 5.991302}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1442,7 +1442,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1926,28 +1926,28 @@ MonoBehaviour:
     objectsToEnable: []
     loudVolume: 0.6
     lowVolume: 0.01
-    clip: {fileID: 8300000, guid: d5d50cc1d2a97d24ebcaabf804983842, type: 3}
+    clip: {fileID: 8300000, guid: 4e4f557a0556b3246b345f07a2983493, type: 3}
     oneShot: {fileID: 0}
     oneShotVolume: 0
   - component: {fileID: 140915159}
     objectsToEnable: []
     loudVolume: 1
     lowVolume: 0.05
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9c2a3ea9cad283f4b9a47ac5462a4a92, type: 3}
     oneShot: {fileID: 0}
     oneShotVolume: 0
   - component: {fileID: 737706270}
     objectsToEnable: []
     loudVolume: 0.6
     lowVolume: 0.01
-    clip: {fileID: 8300000, guid: d5d50cc1d2a97d24ebcaabf804983842, type: 3}
-    oneShot: {fileID: 8300000, guid: 9cdf0282bff87eb42ba66e25ae94c59c, type: 3}
+    clip: {fileID: 8300000, guid: 4e4f557a0556b3246b345f07a2983493, type: 3}
+    oneShot: {fileID: 0}
     oneShotVolume: 0.1
   - component: {fileID: 1037358771}
     objectsToEnable: []
     loudVolume: 1
     lowVolume: 0.05
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 768fb90d345daf14e9a81b3c9e0e3585, type: 3}
     oneShot: {fileID: 0}
     oneShotVolume: 0
   - component: {fileID: 2081491882}
@@ -1955,7 +1955,7 @@ MonoBehaviour:
     - {fileID: 2081491875}
     loudVolume: 1
     lowVolume: 0.05
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: f2d60eccaa9b06a468f3a2f2f6b034f6, type: 3}
     oneShot: {fileID: 0}
     oneShotVolume: 0
 --- !u!4 &1740365500
@@ -2097,8 +2097,14 @@ MonoBehaviour:
   _instructions: {fileID: 8300000, guid: e6e95713489bd974ebb265b3dda828b6, type: 3}
   _tryAgain: {fileID: 8300000, guid: f99d9cc32bc9ab14983a4a7f15d688ff, type: 3}
   _victory: {fileID: 8300000, guid: ebb11393ca278654a9c08191277b3a8b, type: 3}
-  _idleStart: {fileID: 8300000, guid: f8812f4745cae344ab23576e0fe46ca4, type: 3}
-  _idleLoop: {fileID: 8300000, guid: 2d2a385257e9c8a42a0f50c121c4e225, type: 3}
+  _idleStart: {fileID: 8300000, guid: f2d60eccaa9b06a468f3a2f2f6b034f6, type: 3}
+  _idleLoop: {fileID: 8300000, guid: f2d60eccaa9b06a468f3a2f2f6b034f6, type: 3}
+  _riggedSequence: 
+  _useRiggedSequence: 0
+  _alwaysPlayIdle: 0
+  _invalidDropoffClip: {fileID: 0}
+  tryAgainIsVoice: 0
+  dialogue: {fileID: 0}
 --- !u!65 &2081491877
 BoxCollider:
   m_ObjectHideFlags: 0
