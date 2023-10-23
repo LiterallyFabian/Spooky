@@ -42,6 +42,7 @@ namespace Spooky
             }
 
             if(comment != null){
+                yield return new WaitForSeconds(1);
                 PlayTape(comment);
 
                 while (dialogue.IsPlaying())

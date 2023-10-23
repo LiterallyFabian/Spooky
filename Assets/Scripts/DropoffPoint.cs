@@ -97,7 +97,7 @@ namespace Spooky
             _source.volume = _finishedVolume;
 
             if(selfDestruct){
-                gameObject.transform.position = new Vector3(gameObject.transform.position.x - 10, gameObject.transform.position.y, gameObject.transform.position.z);
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x - 100, gameObject.transform.position.y, gameObject.transform.position.z);
             } 
         }
     }

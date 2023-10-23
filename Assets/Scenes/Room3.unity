@@ -1657,15 +1657,15 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 15
-  m_ReverbPreset: 2
+  m_ReverbPreset: 12
   m_Room: -1000
-  m_RoomHF: -6000
-  m_DecayTime: 0.17
+  m_RoomHF: -4000
+  m_DecayTime: 0.3
   m_DecayHFRatio: 0.1
-  m_Reflections: -1204
-  m_ReflectionsDelay: 0.001
-  m_Reverb: 207
-  m_ReverbDelay: 0.002
+  m_Reflections: -1831
+  m_ReflectionsDelay: 0.002
+  m_Reverb: -1630
+  m_ReverbDelay: 0.03
   m_HFReference: 5000
   m_Diffusion: 100
   m_Density: 100
@@ -1773,7 +1773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1244520210
 Transform:
   m_ObjectHideFlags: 0
@@ -1964,7 +1964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1429773495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tape: {fileID: 8300000, guid: 0b0dc93806a954f43809db64f8d877b7, type: 3}
   comment: {fileID: 8300000, guid: 2c4350856f420504888e3073cdc7a83d, type: 3}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 1753971681}
 --- !u!4 &1429773496
 Transform:
   m_ObjectHideFlags: 0
