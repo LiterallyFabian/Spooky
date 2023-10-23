@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd326a40ee145afaf2c503708145707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scene: SampleScene
+  _scene: Room2
   _doorClose: {fileID: 8300000, guid: 9cdf0282bff87eb42ba66e25ae94c59c, type: 3}
 --- !u!65 &560922435
 BoxCollider:
