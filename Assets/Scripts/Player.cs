@@ -62,6 +62,9 @@ namespace Spooky
             audioOcclusionLayerMask = ~LayerMask.GetMask("IgnoreAudioOcclusion");
 
             CheckForSoundOcclusion();
+
+            MovementSpeed *= GameConfig.Config.CharacterSpeed;
+            RotationSpeed *= GameConfig.Config.CharacterRotationSpeed;
         }
 
         private void Update()

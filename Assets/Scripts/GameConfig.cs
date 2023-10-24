@@ -46,7 +46,13 @@ namespace Spooky
         [JsonProperty("use_random_simon_sequence")]
         public bool UseRandomSimonSequence = false;
 
-        [JsonProperty("game_name")] 
+        [JsonProperty("game_name")]
         public string GameName = "Lost and Sound";
+
+        [JsonProperty("character_walking_speed_multiplier")]
+        public float CharacterSpeed = 1;
+
+        [JsonProperty("character_rotation_speed_multiplier")]
+        public float CharacterRotationSpeed = 1;
     }
 }
