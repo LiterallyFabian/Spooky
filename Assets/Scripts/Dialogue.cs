@@ -24,4 +24,10 @@ public class Dialogue : MonoBehaviour
     {
         return audioSource.isPlaying;
     }
+
+    public void StopCurrentLine()
+    {
+        audioSource.Stop();
+        sm.StopSubtitle();
+    }
 }

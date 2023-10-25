@@ -232,7 +232,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9c2a3ea9cad283f4b9a47ac5462a4a92, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b83b67768aa2ce145986fcee17dbed57, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d04b6012ae540f7a4c8bb7c7016b427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickupClip: {fileID: 8300000, guid: 65521df0d3bd7d642a0ce7a0b25cd6c1, type: 3}
+  _pickupClip: {fileID: 8300000, guid: 9a81edef952e9964a9c5dcc10b7c3ef2, type: 3}
   pickUpIsVoice: 0
   dialogue: {fileID: 443709584}
 --- !u!1 &163119879
@@ -1693,7 +1693,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0c333d5b7a31a1c4aa297f8ffd1e943b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.334
+  m_Volume: 0.651
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1702,7 +1702,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 20
-  MaxDistance: 500
+  MaxDistance: 20.2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1737,7 +1737,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1785,7 +1785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227482588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.4, y: 0, z: -2}
+  m_LocalPosition: {x: -38.31, y: 0, z: 5.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2087,11 +2087,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2bb77f718e9e4904f9b5448050e25746, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.255
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2133,7 +2133,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2334,7 +2334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickupPoint: {fileID: 140915159}
-  _dropoffClip: {fileID: 8300000, guid: ef2773ee9ca96e544b9a18e9a83af594, type: 3}
+  _dropoffClip: {fileID: 8300000, guid: 3a272cbffdd470142ad8840078df2b23, type: 3}
   _invalidDropoffClip: {fileID: 8300000, guid: 606ad16faa68cd146a6492328f81c9b0, type: 3}
   _activeVolume: 0.5
   _idleVolume: 0.2
@@ -2665,16 +2665,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5868573770217922866, guid: 1df05a27b4364704aa69683b2f5ebd9a, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d3197cd90a1c4741a1cb9e1a075c6d9, type: 3}
+    - target: {fileID: 5868573770217922866, guid: 1df05a27b4364704aa69683b2f5ebd9a, type: 3}
       propertyPath: comment
       value: 
-      objectReference: {fileID: 8300000, guid: 9ac83ab3ad4f8bf46ad5bab32cf65244, type: 3}
+      objectReference: {fileID: 8300000, guid: abe1e92b66a6a08429bc8558af8d4a97, type: 3}
     - target: {fileID: 5868573770217922866, guid: 1df05a27b4364704aa69683b2f5ebd9a, type: 3}
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 443709584}
     - target: {fileID: 5868573770217922869, guid: 1df05a27b4364704aa69683b2f5ebd9a, type: 3}
       propertyPath: m_Name
-      value: SO_necklace
+      value: SO_musicBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1df05a27b4364704aa69683b2f5ebd9a, type: 3}
@@ -2719,17 +2723,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dropoffPoint: {fileID: 1037358771}
   _sounds:
-  - {fileID: 8300000, guid: 65521df0d3bd7d642a0ce7a0b25cd6c1, type: 3}
-  - {fileID: 8300000, guid: 253e61a0fc68c71498bc1b614b0fbeff, type: 3}
-  - {fileID: 8300000, guid: 48dff99a777c9d144bf1c65d271811c5, type: 3}
-  - {fileID: 8300000, guid: 3569ca7f5b2cd1542b2f01839125606c, type: 3}
+  - {fileID: 8300000, guid: abcb08f10712f0045a222847da508a97, type: 3}
+  - {fileID: 8300000, guid: a3af41c5ba4ec4d4c85f3adbba58e960, type: 3}
+  - {fileID: 8300000, guid: 98b88f3896d830e488c2052d399ecd5c, type: 3}
+  - {fileID: 8300000, guid: a92bb15719a3cd1468a50bc1dda67520, type: 3}
   _instructions: {fileID: 8300000, guid: e6e95713489bd974ebb265b3dda828b6, type: 3}
-  _tryAgain: {fileID: 8300000, guid: f99d9cc32bc9ab14983a4a7f15d688ff, type: 3}
-  _victory: {fileID: 8300000, guid: ebb11393ca278654a9c08191277b3a8b, type: 3}
-  _idleStart: {fileID: 8300000, guid: f2d60eccaa9b06a468f3a2f2f6b034f6, type: 3}
-  _idleLoop: {fileID: 8300000, guid: f2d60eccaa9b06a468f3a2f2f6b034f6, type: 3}
-  _riggedSequence: 0100000003000000020000000100000000000000
-  _useRiggedSequence: 1
+  _tryAgain: {fileID: 8300000, guid: 6126c3a4debda82478fbb8578fa36fbf, type: 3}
+  _victory: {fileID: 8300000, guid: 3fdea5448f224fd44b68064f56d0d16c, type: 3}
+  _idleStart: {fileID: 8300000, guid: 4b151c5350c69fc4bae67651192d1a93, type: 3}
+  _idleLoop: {fileID: 8300000, guid: 0a54de40f1286ea4bb97ee5fe341da43, type: 3}
+  _riggedSequence: 00000000
+  _useRiggedSequence: 0
   _alwaysPlayIdle: 0
   _invalidDropoffClip: {fileID: 0}
   tryAgainIsVoice: 0
@@ -2822,7 +2826,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6fd66a7baa88c7049b82657d8eb15479, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

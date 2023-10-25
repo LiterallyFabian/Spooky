@@ -18,6 +18,7 @@ namespace Spooky
             audioSource.clip = sound;
             audioSource.loop = true;
             audioSource.Play();
+            audioSource.maxDistance = GameConfig.Config.SOSoundDistance;
         }
 
 

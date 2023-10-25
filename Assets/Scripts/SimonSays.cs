@@ -206,7 +206,8 @@ namespace Spooky
 
         private IEnumerator RunSequence()
         {
-            _instructionsSource.Stop();
+            //Vi fixar en massa grejer
+            dialogue.StopCurrentLine();
             _state = SimonSaysState.Running;
 
             yield return new WaitForSeconds(2f);
@@ -270,7 +271,6 @@ namespace Spooky
                 OnGameCompleted?.Invoke();
 
                 _idleSource.Stop();
-
                 Player.ToggleInput(true);
                 Input.Disable();
                 return;

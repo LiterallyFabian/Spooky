@@ -44,15 +44,13 @@ public class SubtitleManager : MonoBehaviour
 
     }
 
-    private void StopSubtitle()
+    public void StopSubtitle()
     {
         GetComponent<TextMeshProUGUI>().text = "";
-        Debug.Log("I have stopped!");
     }
 
     private IEnumerator Waiter()
     {
-        Debug.Log("Duration: " + subtitles[currentSubtitleIndex].duration);
           yield return new WaitForSeconds(subtitles[currentSubtitleIndex].duration);
           StopSubtitle();
 

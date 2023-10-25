@@ -2622,14 +2622,14 @@ AudioReverbZone:
   m_Enabled: 1
   m_MinDistance: 10
   m_MaxDistance: 15
-  m_ReverbPreset: 4
+  m_ReverbPreset: 27
   m_Room: -1000
   m_RoomHF: -1200
   m_DecayTime: 1.49
   m_DecayHFRatio: 0.54
   m_Reflections: -370
   m_ReflectionsDelay: 0.007
-  m_Reverb: 1030
+  m_Reverb: -537
   m_ReverbDelay: 0.011
   m_HFReference: 5000
   m_Diffusion: 100
@@ -2700,7 +2700,7 @@ MonoBehaviour:
   _victory: {fileID: 8300000, guid: ebb11393ca278654a9c08191277b3a8b, type: 3}
   _idleStart: {fileID: 8300000, guid: 35d91a20b334ee1469c4b3b3ea96d249, type: 3}
   _idleLoop: {fileID: 8300000, guid: 700608c9ac810874a83c9870ed846d5d, type: 3}
-  _riggedSequence: 0000000000000000000000000000000000000000
+  _riggedSequence: 00000000
   _useRiggedSequence: 0
   _alwaysPlayIdle: 0
   _invalidDropoffClip: {fileID: 0}

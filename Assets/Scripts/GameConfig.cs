@@ -54,5 +54,8 @@ namespace Spooky
 
         [JsonProperty("character_rotation_speed_multiplier")]
         public float CharacterRotationSpeed = 1;
+
+        [JsonProperty("story_object_sound_max_distance")]
+        public float SOSoundDistance = 3;
     }
 }

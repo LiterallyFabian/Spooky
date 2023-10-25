@@ -1,4 +1,7 @@
 {
   "use_random_simon_sequence": true,
-  "game_name": "Lost and Sound"
+  "game_name": "Lost and Sound",
+  "character_walking_speed_multiplier": 1.0,
+  "character_rotation_speed_multiplier": 1.0,
+  "story_object_sound_max_distance": 3.0
 }
