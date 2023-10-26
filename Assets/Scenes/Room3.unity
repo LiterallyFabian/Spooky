@@ -1087,7 +1087,8 @@ MonoBehaviour:
   _useRiggedSequence: 1
   _alwaysPlayIdle: 1
   _invalidDropoffClip: {fileID: 8300000, guid: 0910f945c8bda1d4cbfac33f53925ab3, type: 3}
-  tryAgainIsVoice: 1
+  tryAgainIsVoice: 0
+  victoryIsVoice: 1
   dialogue: {fileID: 1753971681}
 --- !u!1 &439670307
 GameObject:
@@ -2369,6 +2370,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 563161565068967884, guid: 9b4a444498c10b14a94e6037eadb9630, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 563161565068967884, guid: 9b4a444498c10b14a94e6037eadb9630, type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 563161565068967884, guid: 9b4a444498c10b14a94e6037eadb9630, type: 3}
+      propertyPath: m_margin.y
+      value: -138.3588
+      objectReference: {fileID: 0}
+    - target: {fileID: 563161565068967884, guid: 9b4a444498c10b14a94e6037eadb9630, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 563161565386957262, guid: 9b4a444498c10b14a94e6037eadb9630, type: 3}
       propertyPath: m_IsActive
       value: 1
