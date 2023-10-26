@@ -28,7 +28,7 @@ namespace Spooky
     [RequireComponent(typeof(AudioSource))]
     public class SimonSays : Interactable
     {
-	private bool _done = false;
+        private bool _done = false;
         public override bool Locked => !CanBePlayed && _invalidDropoffClip == null || _done;
 
         public bool CanBePlayed => !(_dropoffPoint != null && !_dropoffPoint.Enabled);
@@ -247,13 +247,16 @@ namespace Spooky
                 Debug.Log(System.DateTime.Now + "   " + "Wrong key!");
 
                 //Här också :)
-                if(tryAgainIsVoice){
+                if (tryAgainIsVoice)
+                {
                     dialogue.Say(_tryAgain);
-                }else{
+                }
+                else
+                {
                     _instructionsSource.clip = _tryAgain;
                     _instructionsSource.Play();
                 }
-                
+
                 _state = SimonSaysState.Idle;
                 Input.Disable();
                 Player.ToggleInput(true);
@@ -269,7 +272,7 @@ namespace Spooky
                 _instructionsSource.clip = _victory;
                 _instructionsSource.Play();
 
-		_done = true;
+                _done = true;
 
                 OnGameCompleted?.Invoke();
 
@@ -282,10 +285,10 @@ namespace Spooky
             {
                 _currentLevel++;
                 _currentPosition = 0;
-            
+
                 if (GameConfig.Config.UseRandomSimonSequence && !_useRiggedSequence)
                     _sequence = GenerateSequence();
-                
+
                 StartCoroutine(RunSequence());
             }
         }
