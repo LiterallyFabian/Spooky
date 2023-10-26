@@ -2076,7 +2076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _simonSays: {fileID: 2081491876}
   _dropoffPoint: {fileID: 0}
-  _doorOpen: {fileID: 8300000, guid: 2bb77f718e9e4904f9b5448050e25746, type: 3}
+  _doorOpen: {fileID: 8300000, guid: 34e05ea5463ef1c47bb2aa6027cad792, type: 3}
 --- !u!82 &1516186716
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2089,7 +2089,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2bb77f718e9e4904f9b5448050e25746, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.255
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
