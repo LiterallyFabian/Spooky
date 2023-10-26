@@ -196,6 +196,9 @@ namespace Spooky
             if (p == null)
                 return;
 
+                if(p.Input == null)
+                return;
+
             if (enabled)
                 p.Input.Enable();
             else

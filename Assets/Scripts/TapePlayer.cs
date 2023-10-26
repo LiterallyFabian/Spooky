@@ -8,7 +8,6 @@ namespace Spooky
     {
         [SerializeField] private AudioClip tape, comment;
         //private AudioSource audioSource;
-        private bool hasPlayed = false;
         [SerializeField] private Dialogue dialogue;
 
         // Start is called before the first frame update

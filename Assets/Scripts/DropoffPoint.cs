@@ -6,7 +6,7 @@ namespace Spooky
     [RequireComponent(typeof(AudioSource))]
     public class DropoffPoint : Interactable
     {
-        public override bool Locked => !(_pickupPoint.InteractedWith || _invalidDropoffClip != null);
+        public override bool Locked => Enabled || !((_pickupPoint.InteractedWith) || _invalidDropoffClip != null);
 
         [Tooltip("The pickup point that the player has to interact with to enable this point.")] [SerializeField]
         private PickupPoint _pickupPoint;

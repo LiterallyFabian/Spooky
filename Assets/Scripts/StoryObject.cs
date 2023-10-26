@@ -7,6 +7,7 @@ namespace Spooky
 
     public class StoryObject : Interactable
     {
+        public override bool Locked => hasPlayed;
         [SerializeField] private AudioClip sound, comment;
         private AudioSource audioSource;
         [SerializeField] private Dialogue dialogue;

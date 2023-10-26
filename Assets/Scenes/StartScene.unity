@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f5bb66d4963f44190441a914d541ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructions: {fileID: 8300000, guid: b46fa36b42955ee48ba3098943c87f77, type: 3}
+  instructions: {fileID: 8300000, guid: 46286c51bcd095144a0a7e1b024c683e, type: 3}
   intro: {fileID: 8300000, guid: 17487c64ebb31cb4d901abf75d20c9c3, type: 3}
   dialogue: {fileID: 5376126}
 --- !u!114 &1938368662 stripped
