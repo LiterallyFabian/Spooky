@@ -90,6 +90,7 @@ namespace Spooky
 
         //Här har Ella och Cassandra förstört grejer
         [SerializeField] private bool tryAgainIsVoice = false;
+        [SerializeField] private bool victoryIsVoice = false;
         [SerializeField] private Dialogue dialogue;
 
         private void Awake()
@@ -269,8 +270,15 @@ namespace Spooky
             {
                 Debug.Log(System.DateTime.Now + "   " + "Sequence complete!");
                 _state = SimonSaysState.Completed;
-                _instructionsSource.clip = _victory;
-                _instructionsSource.Play();
+                
+
+                if (victoryIsVoice)
+                    dialogue.Say(_victory);
+                else
+                {
+                    _instructionsSource.clip = _victory;
+                    _instructionsSource.Play();
+                }
 
                 _done = true;
 
