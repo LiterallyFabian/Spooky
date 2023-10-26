@@ -28,7 +28,8 @@ namespace Spooky
     [RequireComponent(typeof(AudioSource))]
     public class SimonSays : Interactable
     {
-        public override bool Locked => !CanBePlayed && _invalidDropoffClip == null;
+	private bool _done = false;
+        public override bool Locked => !CanBePlayed && _invalidDropoffClip == null || _done;
 
         public bool CanBePlayed => !(_dropoffPoint != null && !_dropoffPoint.Enabled);
 
@@ -267,6 +268,8 @@ namespace Spooky
                 _state = SimonSaysState.Completed;
                 _instructionsSource.clip = _victory;
                 _instructionsSource.Play();
+
+		_done = true;
 
                 OnGameCompleted?.Invoke();
 

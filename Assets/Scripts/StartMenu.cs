@@ -11,6 +11,8 @@ namespace Spooky
         private void Awake()
         {
             _gameTitle.text = GameConfig.Config.GameName;
+            Time.timeScale = 1;
+		AudioListener.volume = 1;
         }
 
         private void Update()
