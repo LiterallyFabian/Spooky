@@ -135,7 +135,7 @@ namespace Spooky
             // early return if we have a dropoff point and it is not enabled
             if (!CanBePlayed)
             {
-                Debug.LogWarning($"This puzzle requires {_dropoffPoint.name} to be played.");
+                Debug.LogWarning(System.DateTime.Now + "   " + ($"This puzzle requires {_dropoffPoint.name} to be played.");
                 return;
             }
 
@@ -155,7 +155,7 @@ namespace Spooky
         void Start()
         {
             if (_sounds.Length != 4)
-                Debug.LogWarning($"An incorrect number of sounds ({_sounds.Length}) was provided.");
+                Debug.LogWarning(System.DateTime.Now + "   " + ($"An incorrect number of sounds ({_sounds.Length}) was provided.");
         }
 
         private IEnumerator TryStartGame()
