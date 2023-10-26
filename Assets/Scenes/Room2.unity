@@ -2727,8 +2727,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a3af41c5ba4ec4d4c85f3adbba58e960, type: 3}
   - {fileID: 8300000, guid: 98b88f3896d830e488c2052d399ecd5c, type: 3}
   - {fileID: 8300000, guid: a92bb15719a3cd1468a50bc1dda67520, type: 3}
-  _instructions: {fileID: 8300000, guid: e6e95713489bd974ebb265b3dda828b6, type: 3}
-  _tryAgain: {fileID: 8300000, guid: 6126c3a4debda82478fbb8578fa36fbf, type: 3}
+  _instructions: {fileID: 8300000, guid: 30e6aabc87bfcf3498c8caad972de59b, type: 3}
+  _tryAgain: {fileID: 8300000, guid: 917356ac887c5464e9066b367f5d8cd1, type: 3}
   _victory: {fileID: 8300000, guid: 3fdea5448f224fd44b68064f56d0d16c, type: 3}
   _idleStart: {fileID: 8300000, guid: 4b151c5350c69fc4bae67651192d1a93, type: 3}
   _idleLoop: {fileID: 8300000, guid: 0a54de40f1286ea4bb97ee5fe341da43, type: 3}
@@ -2736,7 +2736,7 @@ MonoBehaviour:
   _useRiggedSequence: 0
   _alwaysPlayIdle: 0
   _invalidDropoffClip: {fileID: 0}
-  tryAgainIsVoice: 0
+  tryAgainIsVoice: 1
   dialogue: {fileID: 443709584}
 --- !u!65 &2081491877
 BoxCollider:

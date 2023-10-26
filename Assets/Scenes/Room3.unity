@@ -1080,14 +1080,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2d2a385257e9c8a42a0f50c121c4e225, type: 3}
   _instructions: {fileID: 8300000, guid: 3d665b162a320cf4fa68c3920161da89, type: 3}
   _tryAgain: {fileID: 8300000, guid: 58c014f5f90d0cb45a1b89a9104150a9, type: 3}
-  _victory: {fileID: 8300000, guid: ed3266ca3113c604ba18547f6f090bed, type: 3}
+  _victory: {fileID: 8300000, guid: 166a3507ba50c5d4b93a6850b9ab1096, type: 3}
   _idleStart: {fileID: 8300000, guid: 2ad6789506bac1744a934538ca028a78, type: 3}
   _idleLoop: {fileID: 8300000, guid: 2ad6789506bac1744a934538ca028a78, type: 3}
   _riggedSequence: 000000000000000001000000000000000300000002000000
   _useRiggedSequence: 1
   _alwaysPlayIdle: 1
   _invalidDropoffClip: {fileID: 8300000, guid: 0910f945c8bda1d4cbfac33f53925ab3, type: 3}
-  tryAgainIsVoice: 0
+  tryAgainIsVoice: 1
   dialogue: {fileID: 1753971681}
 --- !u!1 &439670307
 GameObject:

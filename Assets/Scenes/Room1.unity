@@ -2695,8 +2695,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b3f3e75acd04ab84c86176f12a964c66, type: 3}
   - {fileID: 8300000, guid: 319576a081f2c5049b927164bfe4611e, type: 3}
   - {fileID: 8300000, guid: 5b7c2e3910ec0b2469fef839fc25c89c, type: 3}
-  _instructions: {fileID: 8300000, guid: e6e95713489bd974ebb265b3dda828b6, type: 3}
-  _tryAgain: {fileID: 8300000, guid: f99d9cc32bc9ab14983a4a7f15d688ff, type: 3}
+  _instructions: {fileID: 8300000, guid: 30e6aabc87bfcf3498c8caad972de59b, type: 3}
+  _tryAgain: {fileID: 8300000, guid: 917356ac887c5464e9066b367f5d8cd1, type: 3}
   _victory: {fileID: 8300000, guid: ebb11393ca278654a9c08191277b3a8b, type: 3}
   _idleStart: {fileID: 8300000, guid: 35d91a20b334ee1469c4b3b3ea96d249, type: 3}
   _idleLoop: {fileID: 8300000, guid: 700608c9ac810874a83c9870ed846d5d, type: 3}
