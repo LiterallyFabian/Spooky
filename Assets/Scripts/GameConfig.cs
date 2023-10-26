@@ -23,16 +23,16 @@ namespace Spooky
                 {
                     _config = new GameConfig();
                     File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(_config, Formatting.Indented));
-                    Debug.Log("Config file created\n" + _config);
+                    Debug.Log(System.DateTime.Now + "   " + "Config file created\n" + _config);
                     return _config;
                 }
 
                 string json = File.ReadAllText(ConfigFilePath);
                 _config = JsonConvert.DeserializeObject<GameConfig>(json);
-                Debug.Log("Config file loaded");
+                Debug.Log(System.DateTime.Now + "   " + "Config file loaded");
                 
                 File.WriteAllText(ConfigFilePath, JsonConvert.SerializeObject(_config, Formatting.Indented));
-                Debug.Log("Config file updated");
+                Debug.Log(System.DateTime.Now + "   " + "Config file updated");
                 
                 return _config;
             }

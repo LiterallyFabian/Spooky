@@ -192,7 +192,7 @@ namespace Spooky
         public static void ToggleInput(bool enabled)
         {
             Player p = FindObjectOfType<Player>();
-            Debug.Log(enabled);
+            Debug.Log(System.DateTime.Now + "   " + enabled);
             if (p == null)
                 return;
 

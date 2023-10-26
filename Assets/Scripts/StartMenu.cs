@@ -10,6 +10,7 @@ namespace Spooky
         [SerializeField] private Text _gameTitle;
         private void Awake()
         {
+            Debug.Log(DateTime.Now);
             _gameTitle.text = GameConfig.Config.GameName;
             Time.timeScale = 1;
 		AudioListener.volume = 1;

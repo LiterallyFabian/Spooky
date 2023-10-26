@@ -163,7 +163,7 @@ namespace Spooky
             if (_state != SimonSaysState.Idle)
                 yield return null;
 
-            Debug.Log("Starting game");
+            Debug.Log(System.DateTime.Now + "   " + "Starting game");
 
             //_instructionsSource.clip = _instructions;
             //_instructionsSource.Play();
@@ -201,7 +201,7 @@ namespace Spooky
                     text += "-"; // add a dash if we have numbers left
             }
 
-            Debug.Log(text);
+            Debug.Log(System.DateTime.Now + "   " + text);
             return seq;
         }
 
@@ -244,7 +244,7 @@ namespace Spooky
 
             if (index != _sequence[_currentPosition])
             {
-                Debug.Log("Wrong key!");
+                Debug.Log(System.DateTime.Now + "   " + "Wrong key!");
 
                 //Här också :)
                 if(tryAgainIsVoice){
@@ -264,7 +264,7 @@ namespace Spooky
 
             if (_currentPosition == _sequence.Length)
             {
-                Debug.Log("Sequence complete!");
+                Debug.Log(System.DateTime.Now + "   " + "Sequence complete!");
                 _state = SimonSaysState.Completed;
                 _instructionsSource.clip = _victory;
                 _instructionsSource.Play();

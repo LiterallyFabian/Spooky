@@ -32,7 +32,7 @@ namespace Spooky
 
         private void OpenDoor()
         {
-            Debug.Log("Door opened");
+            Debug.Log(System.DateTime.Now + "   " + "Door opened");
 
             AudioSource source = gameObject.AddComponent<AudioSource>();
             source.clip = _doorOpen;

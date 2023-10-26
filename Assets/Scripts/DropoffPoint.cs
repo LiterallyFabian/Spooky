@@ -92,7 +92,7 @@ namespace Spooky
                 }
             }
 
-            Debug.Log($"Dropped off item at {name}");
+            Debug.Log(System.DateTime.Now + "   " + $"Dropped off item at {name}");
 
             _source.volume = _finishedVolume;
 

@@ -60,7 +60,7 @@ namespace Spooky
 
             _source.Stop();
 
-            Debug.Log($"Picked up item at {name}");
+            Debug.Log(System.DateTime.Now + "   " + $"Picked up item at {name}");
         }
     }
 }

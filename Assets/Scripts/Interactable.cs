@@ -21,7 +21,7 @@ namespace Spooky
             if (!highlight)
                 return;
             
-            Debug.Log($"Highlighted object {gameObject.name}");
+            Debug.Log(System.DateTime.Now + "   " + $"Highlighted object {gameObject.name}");
 
             AudioSource audio = gameObject.AddComponent<AudioSource>();
             AudioClip clip = Resources.Load<AudioClip>("InteractionSound");
@@ -34,7 +34,7 @@ namespace Spooky
 
         public virtual void Interact()
         {
-            Debug.Log($"Interacted with {gameObject.name}, type {GetType().Name}");
+            Debug.Log(System.DateTime.Now + "   " + $"Interacted with {gameObject.name}, type {GetType().Name}");
         }
     }
 }
