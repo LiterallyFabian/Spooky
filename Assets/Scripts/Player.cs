@@ -182,7 +182,7 @@ namespace Spooky
             Interactable i = _interactableController.CurrentInteractable;
             if (i == null)
             {
-                Debug.LogWarning(System.DateTime.Now + "   " + ("Nothing to interact with here");
+                Debug.LogWarning(System.DateTime.Now + "   " + "Nothing to interact with here");
                 return;
             }
 
