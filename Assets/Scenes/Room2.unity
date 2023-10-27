@@ -1528,8 +1528,8 @@ MonoBehaviour:
   _pickupPoint: {fileID: 737706270}
   _dropoffClip: {fileID: 8300000, guid: 86a9a6c108658c54ea9cd9d0b9d20f50, type: 3}
   _invalidDropoffClip: {fileID: 8300000, guid: e1bc405dd1135754b9b7a467da2204ff, type: 3}
-  _activeVolume: 0.5
-  _idleVolume: 0.2
+  _activeVolume: 1
+  _idleVolume: 0.5
   _finishedVolume: 0.1
   dropOffIsVoice: 1
   selfDestruct: 0
@@ -2336,8 +2336,8 @@ MonoBehaviour:
   _pickupPoint: {fileID: 140915159}
   _dropoffClip: {fileID: 8300000, guid: 3a272cbffdd470142ad8840078df2b23, type: 3}
   _invalidDropoffClip: {fileID: 8300000, guid: 606ad16faa68cd146a6492328f81c9b0, type: 3}
-  _activeVolume: 0.5
-  _idleVolume: 0.2
+  _activeVolume: 1
+  _idleVolume: 1
   _finishedVolume: 0.1
   dropOffIsVoice: 0
   selfDestruct: 1
@@ -2737,6 +2737,7 @@ MonoBehaviour:
   _alwaysPlayIdle: 0
   _invalidDropoffClip: {fileID: 0}
   tryAgainIsVoice: 1
+  victoryIsVoice: 0
   dialogue: {fileID: 443709584}
 --- !u!65 &2081491877
 BoxCollider:
