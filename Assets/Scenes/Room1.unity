@@ -1566,7 +1566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b163788b69dfad649980aac8a67a5ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tape: {fileID: 8300000, guid: 8694b3d5da3ef6944bb9a0d7ac54e747, type: 3}
+  tape: {fileID: 8300000, guid: 605d39456a1948d4ba484158c5be9680, type: 3}
   comment: {fileID: 8300000, guid: 2e6b5d17e5fca3648828019806d72a38, type: 3}
   dialogue: {fileID: 7359754681711471317}
 --- !u!4 &1075077986
@@ -2705,6 +2705,7 @@ MonoBehaviour:
   _alwaysPlayIdle: 0
   _invalidDropoffClip: {fileID: 0}
   tryAgainIsVoice: 1
+  victoryIsVoice: 0
   dialogue: {fileID: 7359754681711471317}
 --- !u!65 &2081491877
 BoxCollider:
